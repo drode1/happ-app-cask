@@ -1,6 +1,6 @@
 cask "geogebra" do
-  version "6.0.884.1"
-  sha256 "22b51c16cfae13c8f015f7f781a4b87ef96426ae04c07c8cfd789b8466a6f4b5"
+  version "6.0.920.0"
+  sha256 "ba804ab9475826133a6547bf65701adf7ffb3fe21ee1c89c2109781bbb881726"
 
   url "https://download.geogebra.org/installers/#{version.major_minor}/GeoGebra-Classic-#{version.major}-MacOS-Portable-#{version.dots_to_hyphens}.zip"
   name "GeoGebra"
@@ -18,7 +18,9 @@ cask "geogebra" do
     end
   end
 
-  depends_on macos: ">= :catalina"
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
+  depends_on macos: ">= :monterey"
 
   app "GeoGebra Classic #{version.major}.app"
 

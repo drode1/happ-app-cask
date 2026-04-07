@@ -1,9 +1,9 @@
 cask "figma" do
   arch arm: "mac-arm", intel: "mac"
 
-  version "125.4.7"
-  sha256 arm:   "8d8f2acc49d8f5f9818eccef4faf6f0eed2d524a779e508f47c36aadde9f2cad",
-         intel: "c3d4a2bd3e893de6c48db6d7d2df8221946417317fae215ec74c1351ae2181a6"
+  version "126.2.10"
+  sha256 arm:   "f70305b37ece1a53a875c227c155ac0d8d4a909f675a764bfa6b2ea70fcc548b",
+         intel: "132ffcdfc513933b81e38a2986634745ff91e81a5e06bd65a46b4f671f3d71c8"
 
   url "https://desktop.figma.com/#{arch}/Figma-#{version}.zip"
   name "Figma"
@@ -18,7 +18,6 @@ cask "figma" do
   end
 
   auto_updates true
-  depends_on macos: ">= :sierra"
 
   app "Figma.app"
 

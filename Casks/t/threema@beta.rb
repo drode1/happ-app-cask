@@ -1,9 +1,9 @@
 cask "threema@beta" do
   arch arm: "arm64", intel: "x64"
 
-  version "2.0-beta50"
-  sha256 arm:   "ffaf420085c10be0bf91367b79cec1406c7760e32c2b2b53ef16c01fbf31e1bb",
-         intel: "9ea7a9e50dabfe03ba4982f977098206b3ff31ac3aa3addf75a9e289cfe0b1c0"
+  version "2.0-beta60"
+  sha256 arm:   "2ad0d0a728c5d88029bc79d5011b765e3ce854d32c2057e31c297825e31aa1ff",
+         intel: "5eca9d760708f3e079deb0bd40248d3a6a27811ae371d4ff1601d44eedcd64a8"
 
   url "https://releases.threema.ch/desktop/#{version}/threema-desktop-v#{version}-macos-#{arch}.dmg"
   name "Threema"
@@ -11,11 +11,13 @@ cask "threema@beta" do
   homepage "https://threema.ch/download-md"
 
   livecheck do
-    url "https://threema.ch/en/download-md"
-    regex(/href=.*?threema[._-]desktop[._-]v?(\d+(?:(?:[.-]|(beta))+\d+)+)[._-]macos[._-]#{arch}\.dmg/i)
+    url "https://releases.threema.ch/desktop/latest-version-consumer-macos.json"
+    strategy :json do |json|
+      json.dig("latestVersion", "version")
+    end
   end
 
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :monterey"
 
   app "Threema Beta.app"
 

@@ -1,12 +1,19 @@
 cask "tableau-public" do
   arch arm: "-arm64"
 
-  version "2025.1.1"
-  sha256 arm:   "7c68eae24ab7e735dca3a7fcc321fe7658bdd4e051cc5623e2e04cba3f0ddb4a",
-         intel: "12fbb9a84e9f4741d5787829abf7f151710114e97a3f505bb7b3dd09d3ab5010"
+  version "2026.1.0"
+  sha256 arm:   "ca508b343f5f6365668e14eb7ee44ad951226e0c80de6942ac75d383d518bcf4",
+         intel: "6ba9aae257cff95d3a3b9a3416b32353aa88dfed6ed6932d06bb6c116cf5cb21"
+
+  on_arm do
+    depends_on macos: ">= :ventura"
+  end
+  on_intel do
+    depends_on macos: ">= :catalina"
+  end
 
   url "https://downloads.tableau.com/esdalt/#{version}/TableauPublic-#{version.dots_to_hyphens}#{arch}.pkg",
-      user_agent: "curl/8.7.1"
+      user_agent: :curl
   name "Tableau Public"
   desc "Explore, create and publicly share data visualisations online"
   homepage "https://public.tableau.com/s/"

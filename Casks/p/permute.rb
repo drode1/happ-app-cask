@@ -1,6 +1,6 @@
 cask "permute" do
-  version "3.12.6,2814"
-  sha256 "9cd3acd079ad5b1dd9744a0c99799310829683a2b3c5c56e44baa6414e9718e1"
+  version "3.14.7,4012"
+  sha256 "b1f45fdb2f8036f85eaec4eaa617887fad982fd5f810c8cc7f8e5f9e5d00b87d"
 
   url "https://software.charliemonroe.net/trial/permute/v#{version.major}/Permute_#{version.major}_#{version.csv.second}.dmg"
   name "Permute"
@@ -18,7 +18,12 @@ cask "permute" do
   app "Permute #{version.major}.app"
 
   zap trash: [
+    "~/Library/Application Scripts/*.com.charliemonroe.eney",
+    "~/Library/Application Scripts/*com.charliemonroe.Permute*",
+    "~/Library/Caches/com.apple.helpd/Generated/com.charliemonroe.Permute-#{version.major}*",
     "~/Library/Containers/com.charliemonroe.Permute-#{version.major}",
+    "~/Library/Containers/com.charliemonroe.Permute.MetadataProcessor",
+    "~/Library/Group Containers/*.com.charliemonroe.Permute*",
     "~/Library/Preferences/com.charliemonroe.Permute-#{version.major}.plist",
   ]
 end

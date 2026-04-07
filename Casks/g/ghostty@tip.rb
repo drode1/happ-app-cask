@@ -1,21 +1,26 @@
 cask "ghostty@tip" do
-  version "10189,b6f338065eb45935627a51a7d9102019aaeae1c0"
-  sha256 "2a0a1d6c60376b974ba9f00bd1539a41d191babf726a5aec25be202448991df3"
+  version "15740,f65fb3d44265f9c199df0a78f4788dc62a20b018"
+  sha256 "17b03861b22afa4af28e0b83816962e61384ea907f5d391ab5212dae4ab870fd"
 
   url "https://tip.files.ghostty.org/#{version.csv.second}/Ghostty.dmg"
   name "Ghostty"
   desc "Terminal emulator that uses platform-native UI and GPU acceleration"
   homepage "https://ghostty.org/"
 
+  # Upstream typically creates several releases per day and there isn't always
+  # a release for every version increase.
   livecheck do
     url "https://tip.files.ghostty.org/appcast.xml"
     regex(%r{/(\h+)/Ghostty\.dmg}i)
-    strategy :sparkle do |item, regex|
-      match = item.url&.match(regex)
-      next if match.blank?
+    strategy :sparkle do |items, regex|
+      items.map do |item|
+        match = item.url&.match(regex)
+        next if match.blank?
 
-      "#{item.version},#{match[1]}"
+        "#{item.version},#{match[1]}"
+      end
     end
+    throttle days: 1
   end
 
   auto_updates true
@@ -23,18 +28,15 @@ cask "ghostty@tip" do
   depends_on macos: ">= :ventura"
 
   app "Ghostty.app"
-  binary "#{appdir}/Ghostty.app/Contents/MacOS/ghostty"
-  binary "#{appdir}/Ghostty.app/Contents/Resources/bash-completion/completions/ghostty.bash",
-         target: "#{HOMEBREW_PREFIX}/etc/bash_completion.d/ghostty"
-  binary "#{appdir}/Ghostty.app/Contents/Resources/fish/vendor_completions.d/ghostty.fish",
-         target: "#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d/ghostty.fish"
-  binary "#{appdir}/Ghostty.app/Contents/Resources/zsh/site-functions/_ghostty",
-         target: "#{HOMEBREW_PREFIX}/share/zsh/site-functions/_ghostty"
   manpage "#{appdir}/Ghostty.app/Contents/Resources/man/man1/ghostty.1"
   manpage "#{appdir}/Ghostty.app/Contents/Resources/man/man5/ghostty.5"
+  bash_completion "#{appdir}/Ghostty.app/Contents/Resources/bash-completion/completions/ghostty.bash"
+  fish_completion "#{appdir}/Ghostty.app/Contents/Resources/fish/vendor_completions.d/ghostty.fish"
+  zsh_completion "#{appdir}/Ghostty.app/Contents/Resources/zsh/site-functions/_ghostty"
 
   zap trash: [
-    "~/.config/ghostty/",
+    "~/.cache/ghostty",
+    "~/.config/ghostty",
     "~/Library/Application Support/com.mitchellh.ghostty",
     "~/Library/Caches/com.mitchellh.ghostty",
     "~/Library/HTTPStorages/com.mitchellh.ghostty",

@@ -12,7 +12,7 @@ cask "space-saver" do
     regex(/Download Space Saver \(ver (\d+(?:\.\d+)*)\)/i)
   end
 
-  depends_on macos: ">= :high_sierra"
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Space Saver.app"
 

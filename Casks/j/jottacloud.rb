@@ -1,6 +1,6 @@
 cask "jottacloud" do
-  version "25.04.28.135128,9a2964b65e21c157fe767e0cd4cb342a94b6c9c679531f330d9ff4fc21c04b96"
-  sha256 "9a2964b65e21c157fe767e0cd4cb342a94b6c9c679531f330d9ff4fc21c04b96"
+  version "26.03.26.162551,dd3161e89eace917366ee5ba799eca5042ab4a5a7b00c983036087e3c96cb5f1"
+  sha256 "dd3161e89eace917366ee5ba799eca5042ab4a5a7b00c983036087e3c96cb5f1"
 
   url "https://sw.jotta.cloud/desktop/download/data/#{version.csv.second}/Jottacloud.dmg",
       verified: "sw.jotta.cloud/"
@@ -10,7 +10,7 @@ cask "jottacloud" do
 
   livecheck do
     url "https://sw.jotta.cloud/desktop/appcast/CUST/release"
-    regex(%r{/([^/]+)/Jottacloud(?:\s*Installer)?\.dmg})
+    regex(%r{/([^/]+)/Jottacloud(?:\s*Installer)?\.dmg}i)
     strategy :sparkle do |item, regex|
       id = item.url[regex, 1]
       next if id.blank?
@@ -20,7 +20,6 @@ cask "jottacloud" do
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
 
   app "Jottacloud.app"
 

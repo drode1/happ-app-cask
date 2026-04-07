@@ -1,12 +1,12 @@
 cask "lookaway" do
-  version "1.12.1"
-  sha256 "48add1513e88f05119ec2467784fcedf8adc4a030a7249bf3fc790c4ebe6dbfe"
+  version "1.14.10"
+  sha256 "9805b2f7a948415c260fabbf220fdc1f48ead1d42a5aa38ef69bfccdd420b863"
 
   url "https://github.com/mysticalbits/lookaway-releases/releases/download/#{version}/LookAway.dmg",
       verified: "github.com/mysticalbits/lookaway-releases/"
   name "LookAway"
   desc "Break time reminder app"
-  homepage "https://lookaway.app/"
+  homepage "https://lookaway.com/"
 
   auto_updates true
   depends_on macos: ">= :ventura"

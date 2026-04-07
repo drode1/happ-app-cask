@@ -2,9 +2,16 @@ cask "libreoffice-still" do
   arch arm: "aarch64", intel: "x86-64"
   folder = on_arch_conditional arm: "aarch64", intel: "x86_64"
 
-  version "24.8.6"
-  sha256 arm:   "1ec523638351c0530d0eaba91b1fbc1f5571810c841adf2654d0d42bdfbda432",
-         intel: "c445df4c9ea03d16f7e10bd4a524ae3cd9803e59dc523b883718ad7c5f0f9d34"
+  version "25.8.6"
+  sha256 arm:   "57ddee0f8ef2d06fd7a9b0e3cf191107e6cb97ec03f0a7f6b137f732e251fde2",
+         intel: "017c64b6e2992db9cbb44f9b1fc3fd2ede3e332c8b481746b780b8a282f09692"
+
+  on_arm do
+    depends_on macos: ">= :big_sur"
+  end
+  on_intel do
+    depends_on macos: ">= :catalina"
+  end
 
   url "https://download.documentfoundation.org/libreoffice/stable/#{version}/mac/#{folder}/LibreOffice_#{version}_MacOS_#{arch}.dmg",
       verified: "download.documentfoundation.org/libreoffice/stable/"
@@ -16,19 +23,15 @@ cask "libreoffice-still" do
   # cask, so we need to make sure that the former always checks a page that
   # provides the latest versions for both Fresh and Still.
   livecheck do
-    url "https://wiki.documentfoundation.org/Main_Page"
-    regex(/>\s*Download\s+LibreOffice\s+v?(\d+(?:\.\d+)+)\s*</im)
+    url "https://www.libreoffice.org/download/download-libreoffice/?type=mac-#{folder}"
+    regex(/href=.*?LibreOffice[._-]v?(\d+(?:\.\d+)+)(?:[._-]MacOS)?[._-]#{arch}\.dmg/i)
     strategy :page_match do |page, regex|
-      versions = page.scan(regex).map(&:first)
-      uniq_major_minor = versions.map { |version| Version.new(version).major_minor }.uniq.sort.reverse
-      next if uniq_major_minor.length < 2
-
-      versions.select { |version| Version.new(version).major_minor == uniq_major_minor[1] }
+      # Sort versions from lowest to highest, using the lowest (or only) version
+      page.scan(regex).map(&:first).uniq.min_by { |v| Version.new(v) }
     end
   end
 
   conflicts_with cask: "libreoffice"
-  depends_on macos: ">= :catalina"
 
   app "LibreOffice.app"
   binary "#{appdir}/LibreOffice.app/Contents/MacOS/gengal"

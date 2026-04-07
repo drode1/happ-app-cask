@@ -8,8 +8,7 @@ cask "findergo" do
   homepage "https://github.com/onmyway133/FinderGo"
 
   deprecate! date: "2025-02-22", because: :unmaintained
-
-  depends_on macos: ">= :sierra"
+  disable! date: "2026-02-22", because: :unmaintained
 
   app "FinderGo.app"
 

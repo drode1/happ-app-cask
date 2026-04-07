@@ -1,6 +1,6 @@
 cask "openhv" do
-  version "20250413"
-  sha256 "dd8a68a2a76a1caf7678dbbfd24a182cd481fb9b3712759f71f4c769b564a05c"
+  version "20250725"
+  sha256 "7ccb58351554bbabf2181c6330cfabd139ba555b7f71ee91d9880c7c8110c60f"
 
   url "https://github.com/OpenHV/OpenHV/releases/download/#{version}/OpenHV-#{version}.dmg",
       verified: "github.com/OpenHV/OpenHV/"

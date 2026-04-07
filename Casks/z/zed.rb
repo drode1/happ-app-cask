@@ -1,9 +1,9 @@
 cask "zed" do
   arch arm: "aarch64", intel: "x86_64"
 
-  version "0.184.10"
-  sha256 arm:   "0733ca9e1a644dabdf2c320ad8d68f428c71514620b00d08309f0d2d6d6f8878",
-         intel: "df6d8d769dbfca2b812015b5a11829427e8d50f143e0c120cc2e05329d100c1a"
+  version "0.230.2"
+  sha256 arm:   "8a4e854e4a8b268464d1f1cf1c93fa959db9948266ffbe2f942e82e149185e58",
+         intel: "79bcad2d1794c683020abde3dea8f88ea939f13b3a1be0feefaf0338f5bd7538"
 
   url "https://zed.dev/api/releases/stable/#{version}/Zed-#{arch}.dmg"
   name "Zed"
@@ -18,7 +18,6 @@ cask "zed" do
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
 
   app "Zed.app"
   binary "#{appdir}/Zed.app/Contents/MacOS/cli", target: "zed"

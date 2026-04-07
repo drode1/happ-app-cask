@@ -1,6 +1,6 @@
 cask "qownnotes" do
-  version "25.5.3"
-  sha256 "4627e8380645ea446e097595394a54303d6d4eb7a5fa5c19adb3d12ae552e358"
+  version "26.4.6"
+  sha256 "06dbf6d9f3f4587bc9066a07b958810684dd4d4eb28da6e9fc32accfdbf2c571"
 
   url "https://github.com/pbek/QOwnNotes/releases/download/v#{version}/QOwnNotes.dmg",
       verified: "github.com/pbek/QOwnNotes/"
@@ -13,8 +13,10 @@ cask "qownnotes" do
     strategy :github_latest
   end
 
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
   auto_updates true
-  depends_on macos: ">= :high_sierra"
+  depends_on macos: ">= :ventura"
 
   app "QOwnNotes.app"
 
@@ -22,8 +24,4 @@ cask "qownnotes" do
     "~/Library/Preferences/com.pbe.QOwnNotes.plist",
     "~/Library/Saved Application State/com.PBE.QOwnNotes.savedState",
   ]
-
-  caveats do
-    requires_rosetta
-  end
 end

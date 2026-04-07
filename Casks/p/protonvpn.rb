@@ -1,8 +1,9 @@
 cask "protonvpn" do
-  version "4.8.0"
-  sha256 "517079b0ecb9403184aed883633e97127f3c7b006cf0f282eb0e05e5d6332b80"
+  version "6.4.0"
+  sha256 "179352ecd36ac4d25c97b8056aa5ad5b107105b57a06da7b732c83a5e80418b4"
 
-  url "https://protonvpn.com/download/macos/#{version}/ProtonVPN_mac_v#{version}.dmg"
+  url "https://vpn.protondownload.com/download/macos/#{version}/ProtonVPN_mac_v#{version}.dmg",
+      verified: "vpn.protondownload.com/"
   name "ProtonVPN"
   desc "VPN client focusing on security"
   homepage "https://protonvpn.com/"
@@ -10,14 +11,14 @@ cask "protonvpn" do
   # The Sparkle feed can contain items on the "beta" channel, so we restrict
   # matching to the default channel.
   livecheck do
-    url "https://protonvpn.com/download/macos-update#{version.major}.xml"
+    url "https://protonvpn.com/download/macos/updates/v5/sparkle.xml"
     strategy :sparkle do |items|
       items.find { |item| item.channel.nil? }&.short_version
     end
   end
 
   auto_updates true
-  depends_on macos: ">= :monterey"
+  depends_on macos: ">= :sonoma"
 
   app "ProtonVPN.app"
 

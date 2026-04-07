@@ -1,6 +1,6 @@
 cask "open-eid" do
-  version "24.9.0.1949"
-  sha256 "e9c83c37836d9d0b78d2867f978caae1bb781ffbf62e40559484f5fad400268e"
+  version "25.10.0.235"
+  sha256 "88727940d3e023b325359595c41bb3a6b03650b10eaf54c67edaf688b0bfebe3"
 
   url "https://installer.id.ee/media/osx/Open-EID_#{version}.dmg"
   name "Open-EID"
@@ -8,7 +8,7 @@ cask "open-eid" do
   homepage "https://www.id.ee/en/article/install-id-software/"
 
   livecheck do
-    url "https://www.id.ee/en/article/install-id-software/"
+    url :homepage
     regex(/href=.*?Open[._-]EID[._-]v?(\d+(?:\.\d+)+)\.dmg/i)
   end
 

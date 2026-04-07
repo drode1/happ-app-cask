@@ -1,6 +1,6 @@
 cask "principle" do
-  version "6.38"
-  sha256 "a10ed4635ca851d8521df23db2e0f2f9d7e4f7fd67e450a13bab0a53a6058708"
+  version "6.42"
+  sha256 "2f5a4f46d9fc5151ebf14dd8c2f4807bd1dd47023b3e41489c6ac9571beaa290"
 
   url "https://principleformac.com/download/Principle_#{version.dots_to_underscores}.zip"
   name "Principle"
@@ -13,7 +13,6 @@ cask "principle" do
   end
 
   auto_updates true
-  depends_on macos: ">= :mojave"
 
   app "Principle.app"
 

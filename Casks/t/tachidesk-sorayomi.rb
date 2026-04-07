@@ -7,7 +7,7 @@ cask "tachidesk-sorayomi" do
   desc "Manga reader"
   homepage "https://github.com/Suwayomi/Tachidesk-Sorayomi/"
 
-  depends_on macos: ">= :catalina"
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Sorayomi.app"
 

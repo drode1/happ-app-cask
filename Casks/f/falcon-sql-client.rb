@@ -9,6 +9,7 @@ cask "falcon-sql-client" do
   homepage "https://plot.ly/free-sql-client-download/"
 
   deprecate! date: "2024-06-17", because: :discontinued
+  disable! date: "2025-06-17", because: :discontinued
 
   app "Falcon SQL Client.app"
 

@@ -1,6 +1,6 @@
 cask "marvel" do
-  version "11.2.4"
-  sha256 "a72846f42b02ac14b9844843da5c73278703213a9bc9797d19b8ceeb58db986d"
+  version "11.5"
+  sha256 "fd6a3bb8a24ce9f4a44f6b3129ccdf37c532ba95e00ae6537f6d9a6699654911"
 
   url "https://storage.googleapis.com/sketch-plugin/#{version}/Marvel.zip",
       verified: "storage.googleapis.com/sketch-plugin/"
@@ -12,8 +12,6 @@ cask "marvel" do
     url "https://storage.googleapis.com/sketch-plugin/app.xml"
     strategy :sparkle, &:short_version
   end
-
-  depends_on macos: ">= :mojave"
 
   app "Marvel.app"
 

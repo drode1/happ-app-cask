@@ -1,9 +1,9 @@
 cask "dataflare" do
   arch arm: "aarch64", intel: "x86_64"
 
-  version "1.9.5"
-  sha256 arm:   "586613fa444d70ecccac50ab10a20414fb5798678e6fdbbff32f8ff28e605854",
-         intel: "97a28337a5a14113ef4e41e5bd30d8e8b5cdf9e004a0e7fd2248c64dabe62700"
+  version "2.9.4"
+  sha256 arm:   "5af9552b57d30aab085bb99d4dbbed79b2efaa059a5153ca0fbc7256c0a009aa",
+         intel: "d5b750e1a557bcc9d3ca10890fc8a57dc553549d0b88527804bef5d10694bb91"
 
   url "https://assets.dataflare.app/release/darwin/#{arch}/Dataflare-#{version}.dmg"
   name "Dataflare"
@@ -18,7 +18,6 @@ cask "dataflare" do
   end
 
   auto_updates true
-  depends_on macos: ">= :high_sierra"
 
   app "Dataflare.app"
 

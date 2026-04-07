@@ -8,6 +8,7 @@ cask "beyond-compare@beta" do
   homepage "https://www.scootersoftware.com/"
 
   deprecate! date: "2024-07-10", because: :discontinued
+  disable! date: "2025-07-10", because: :discontinued
 
   auto_updates true
   conflicts_with cask: [

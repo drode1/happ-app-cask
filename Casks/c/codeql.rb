@@ -1,6 +1,6 @@
 cask "codeql" do
-  version "2.21.2"
-  sha256 "63b23cd0bda24d60e7b47945f7b9c782d7d160e3ff288ac2900b81d80af407e8"
+  version "2.25.1"
+  sha256 "5c1433af9723ceff1e9545757617aaf90c1ee85414180b2534368fd27fa77b96"
 
   url "https://github.com/github/codeql-cli-binaries/releases/download/v#{version}/codeql-osx64.zip"
   name "CodeQL"
@@ -15,8 +15,4 @@ cask "codeql" do
   binary "#{staged_path}/codeql/codeql"
 
   # No zap stanza required
-
-  caveats do
-    requires_rosetta
-  end
 end

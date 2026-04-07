@@ -2,9 +2,9 @@ cask "dropbox" do
   arch arm: ".arm64"
   livecheck_query = on_arch_conditional arm: "&arch=arm64"
 
-  version "223.4.4909"
-  sha256 arm:   "a6c26818b575b1f4c7a3086d941cac0fff962fdd227024aa77fe601c1af1a02e",
-         intel: "17b1ff5f3a94a4c9705f3bb9debbe67b766ada7bf2cfb74837b41a6eda6a07f7"
+  version "246.4.3513"
+  sha256 arm:   "fb0d10ea8ea0ba102dd86fc99a62b1edeb33dfac34856335c9303e4f7876408b",
+         intel: "e645f15f4aaa62336b4df25c89e36b3f178443890b5d8ff4f7e76d9d9f7f081b"
 
   url "https://edge.dropboxstatic.com/dbx-releng/client/Dropbox%20#{version}#{arch}.dmg",
       verified: "dropboxstatic.com/dbx-releng/client/"
@@ -44,6 +44,7 @@ cask "dropbox" do
     "~/Library/Application Support/FileProvider/com.getdropbox.dropbox.fileprovider",
     "~/Library/Caches/CloudKit/com.apple.bird/iCloud.com.getdropbox.Dropbox",
     "~/Library/Caches/com.dropbox.DropboxMacUpdate",
+    "~/Library/Caches/com.dropbox.DropboxUpdater",
     "~/Library/Caches/com.getdropbox.dropbox",
     "~/Library/Caches/com.getdropbox.DropboxMetaInstaller",
     "~/Library/Caches/com.plausiblelabs.crashreporter.data/com.dropbox.DropboxMacUpdate",

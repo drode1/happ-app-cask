@@ -1,11 +1,11 @@
 cask "gearboy" do
-  arch arm: "arm", intel: "intel"
+  arch arm: "arm64", intel: "intel"
 
-  version "3.7.0"
-  sha256 arm:   "9bb451193e87ff6e8de6efbcb7fe1eeb13e28fb18b4557a8f746a4007f7203e9",
-         intel: "bb18837be9f09e3c1b2ff66ab833cf7551d6250f7f582a4ec278d9fa42255534"
+  version "3.8.2"
+  sha256 arm:   "3c850054955f207074d458ff3548e63f310a1818d3e539877ee34718a600f0d0",
+         intel: "270f6d23019583b922becf3a334c9d17c4baa34bb92c086b6c5f62a75e4d01f1"
 
-  url "https://github.com/drhelius/Gearboy/releases/download/#{version}/Gearboy-#{version}-macos-#{arch}.zip"
+  url "https://github.com/drhelius/Gearboy/releases/download/#{version}/Gearboy-#{version}-desktop-macos-#{arch}.zip"
   name "Gearboy"
   desc "Game Boy and Game Boy Color emulator"
   homepage "https://github.com/drhelius/Gearboy"

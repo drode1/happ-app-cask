@@ -1,25 +1,30 @@
 cask "freecad" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "1.0.0"
-  sha256 arm:   "ec287b388cb94876214678b8f9f586166261883e2591df274a52b19b73d48183",
-         intel: "48a38173a7181bd24f647d162488284a94e5cbf8678b15de8bbe41d5dbad4bd4"
+  version "1.1.0"
+  sha256 arm:   "52b069f86471ccf4fdd535c42cd9b74b9a8079a7abfd0f51ff19b0a30c6d795b",
+         intel: "9eb363a4bd2e7c718713635a7aecb29c3550302192f89517a157ba07d486da4b"
 
-  url "https://github.com/FreeCAD/FreeCAD/releases/download/#{version}/FreeCAD_#{version}-conda-macOS-#{arch}-py311.dmg",
+  on_arm do
+    depends_on macos: ">= :big_sur"
+  end
+  on_intel do
+    depends_on macos: ">= :catalina"
+  end
+
+  url "https://github.com/FreeCAD/FreeCAD/releases/download/#{version}/FreeCAD_#{version}-macOS-#{arch}-py311.dmg",
       verified: "github.com/FreeCAD/FreeCAD/"
   name "FreeCAD"
   desc "3D parametric modeller"
   homepage "https://www.freecad.org/"
 
   # Upstream uses GitHub releases to indicate that a version is released
-  # (there's also sometimes a notable gap between the release being created
-  # and the homepage being updated), so the `GithubLatest` strategy is necessary.
+  # (there's also sometimes a notable gap between when the release is created
+  # and the homepage is updated), so the `GithubLatest` strategy is necessary.
   livecheck do
     url :url
     strategy :github_latest
   end
-
-  depends_on macos: ">= :sierra"
 
   app "FreeCAD.app"
 

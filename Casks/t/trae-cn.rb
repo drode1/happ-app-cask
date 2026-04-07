@@ -1,9 +1,9 @@
 cask "trae-cn" do
   arch arm: "arm64", intel: "x64"
 
-  version "1.0.12489"
-  sha256 arm:   "98e37daed55c7e2f92c6c2e5035b116df1d9281d8638d7d9deaaac216f38359b",
-         intel: "5f7afd89641055626371eff9daa103605d1f7e82191f27bf5bd870a4e6319f87"
+  version "2.3.17432"
+  sha256 arm:   "6689fb30431d2e3d9e001a83b2b3476875c22527a4497a3fe42eede9661d410f",
+         intel: "d8dfa5b397e79cfd59cc5c012cd257b3f9bab6438dba940a4a83f6c4e556aba2"
 
   url "https://lf-cdn.trae.com.cn/obj/trae-com-cn/pkg/app/releases/stable/#{version}/darwin/Trae%20CN-darwin-#{arch}.dmg"
   name "Trae CN"
@@ -18,7 +18,7 @@ cask "trae-cn" do
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :monterey"
 
   app "Trae CN.app"
 

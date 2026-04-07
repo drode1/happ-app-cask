@@ -1,6 +1,6 @@
 cask "brewtarget" do
-  version "4.0.17"
-  sha256 "2d7dcc5ec784289d7e46c44e49d0df51fabad0d21a9c1cd6b327cb7697a3fb0c"
+  version "5.0.4"
+  sha256 "23561e1739bbcfe7a52e67b18ad18f29d86b884a559fa24e4b3c0c99f71ad2b1"
 
   url "https://github.com/Brewtarget/brewtarget/releases/download/v#{version}/brewtarget_#{version}_MacOS.dmg",
       verified: "github.com/Brewtarget/brewtarget/"
@@ -12,6 +12,10 @@ cask "brewtarget" do
     url :url
     strategy :github_latest
   end
+
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
+  depends_on macos: ">= :sequoia"
 
   app "brewtarget_#{version}_MacOS.app"
 

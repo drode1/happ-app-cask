@@ -1,6 +1,6 @@
 cask "discord@development" do
-  version "0.0.87"
-  sha256 "5cf1c05498c43b1fb6aaffb1c4e09b56eb6b6d974f2efa1350cbd10cae2710bf"
+  version "0.0.119"
+  sha256 "8102f689b0b1a87b126ccbb90a8afe45b8a835d6eeba9268f09a0fe0f5a62720"
 
   url "https://dl-development.discordapp.net/apps/osx/#{version}/DiscordDevelopment.dmg",
       verified: "dl-development.discordapp.net/"
@@ -14,7 +14,7 @@ cask "discord@development" do
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :big_sur"
 
   app "Discord Development.app"
 

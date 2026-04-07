@@ -1,29 +1,29 @@
 cask "keybase" do
-  arch arm: "arm64-"
+  arch arm: "-arm64"
+
+  sha256 :no_check
 
   on_arm do
-    version "6.5.1,20250422141116,19f9cfeddb"
-    sha256 "085fa763b6b6648218274c7a0080b0a810ec750578d0c432f0b682ad5cd0c370"
+    version "6.6.0,20260305145732,79477565ce"
   end
   on_intel do
-    version "6.5.1,20250422135509,19f9cfeddb"
-    sha256 "49125bca184069a5c7ffe096d69fd946256de1a21590a46a269b2e75bb132f81"
+    version "6.6.0,20260305143645,79477565ce"
   end
 
-  url "https://prerelease.keybase.io/darwin-#{arch}updates/Keybase-#{version.csv.first}-#{version.csv.second}%2B#{version.csv.third}.zip"
+  url "https://prerelease.keybase.io/Keybase#{arch}.dmg"
   name "Keybase"
   desc "End-to-end encryption software"
   homepage "https://keybase.io/"
 
   livecheck do
-    url "https://prerelease.keybase.io/update-darwin-#{arch}prod-v2.json"
+    url "https://prerelease.keybase.io/update-darwin#{arch}-prod-v2.json"
     strategy :json do |json|
       json["version"]&.tr("-+", ",")
     end
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :monterey"
 
   app "Keybase.app"
 

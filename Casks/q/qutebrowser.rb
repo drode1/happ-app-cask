@@ -1,9 +1,9 @@
 cask "qutebrowser" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "3.5.0"
-  sha256 arm:   "89bede17bb26cd0e72cd4f2d8a55b42109133c8ad358a358e8bd1816489f05cd",
-         intel: "f2405d1c672b02dfdbdfc754dae9bdd1c14bc1e97602e7a339d35378eb63d816"
+  version "3.7.0"
+  sha256 arm:   "98170241bf12a2fe1deabffc8120b70dc8e00e555bb712c38751c448f04954a3",
+         intel: "c51d1e9461d7f6a1ff4559f9e709caeff95effa52d4186805368a525e2fd48c7"
 
   url "https://github.com/qutebrowser/qutebrowser/releases/download/v#{version}/qutebrowser-#{version}-#{arch}.dmg",
       verified: "github.com/qutebrowser/qutebrowser/"
@@ -11,9 +11,13 @@ cask "qutebrowser" do
   desc "Keyboard-driven, vim-like browser based on PyQt5"
   homepage "https://www.qutebrowser.org/"
 
-  app "qutebrowser.app"
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
+  depends_on macos: ">= :big_sur"
+
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
   shimscript = "#{staged_path}/qutebrowser.wrapper.sh"
+  app "qutebrowser.app"
   binary shimscript, target: "qutebrowser"
 
   preflight do

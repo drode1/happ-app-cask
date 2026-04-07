@@ -1,12 +1,16 @@
 cask "clibor" do
-  version "1.5"
+  version "1.6"
   sha256 :no_check
 
   language "en", default: true do
     url "https://chigusa-web.com/clibor-for-mac-en/dl/clibor-for-mac/"
+
+    "en-US"
   end
   language "ja" do
     url "https://chigusa-web.com/clibor-for-mac/dl/clibor-for-mac/"
+
+    "ja-JP-mac"
   end
 
   name "Clibor for Mac"

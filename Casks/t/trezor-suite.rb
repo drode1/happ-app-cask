@@ -1,9 +1,9 @@
 cask "trezor-suite" do
   arch arm: "arm64", intel: "x64"
 
-  version "25.4.2"
-  sha256 arm:   "fe19a40fe30e5ace1645069a4ea7ec100cdcaa9dd5822f11ca4699ec29d8f604",
-         intel: "b0e55c58db32db2e73c7dfe2653d846931752429a7ed6fab92021465b6717d62"
+  version "26.3.3"
+  sha256 arm:   "23a7ed8dc948ac5b56ad2dd71dd2f0f6d239791de39ac6186cc9d445e395e2a2",
+         intel: "4e84f1bf442b34a861d052b8522faa26cf7833f48c46575b9da10dc9680e8a0a"
 
   url "https://data.trezor.io/suite/releases/desktop/latest/Trezor-Suite-#{version}-mac-#{arch}.dmg"
   name "TREZOR Suite"
@@ -16,7 +16,7 @@ cask "trezor-suite" do
   end
 
   auto_updates true
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :monterey"
 
   app "Trezor Suite.app"
 

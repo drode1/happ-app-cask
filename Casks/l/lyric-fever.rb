@@ -1,8 +1,8 @@
 cask "lyric-fever" do
-  version "2.1"
-  sha256 "6d62ba9f3b7e22113e21aa8fc5be84dd1c7f98aee3d1cd8a3b3f41ddcdb9a04b"
+  version "3.3"
+  sha256 "48f0ea7f02301534575355b6476156b1bbf615f839ba34943146f50a3cb93df2"
 
-  url "https://github.com/aviwad/LyricFever/releases/download/v#{version}/Lyric.Fever.#{version}.dmg",
+  url "https://github.com/aviwad/LyricFever/releases/download/v#{version.csv.second || version.csv.first}/Lyric.Fever.#{version.csv.first}.dmg",
       verified: "github.com/aviwad/LyricFever/releases/download/"
   name "Lyric Fever"
   desc "Lyrics for Apple Music and Spotify"
@@ -10,11 +10,17 @@ cask "lyric-fever" do
 
   livecheck do
     url "https://aviwad.github.io/SpotifyLyricsInMenubar/appcast.xml"
-    strategy :sparkle
+    regex(%r{/v?(\d+(?:\.\d+)*[^/]*)/Lyric[._-]Fever[._-]v?(\d+(?:\.\d+)+)\.dmg}i)
+    strategy :sparkle do |item, regex|
+      match = item.url&.match(regex)
+      next if match.blank?
+
+      (match[2] == match[1]) ? match[2] : "#{match[2]},#{match[1]}"
+    end
   end
 
   auto_updates true
-  depends_on macos: ">= :ventura"
+  depends_on macos: ">= :sequoia"
 
   app "Lyric Fever.app"
 

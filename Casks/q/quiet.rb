@@ -1,6 +1,6 @@
 cask "quiet" do
-  version "4.1.2"
-  sha256 "9fc296c51f0e9a85bd1e2120643c267098c56ee2289dfe15c2954844b5a73494"
+  version "7.0.0"
+  sha256 "ed8d2f83d457d51b0b0731144b99a0a332a4c03f6dea7010fd9e8c534700308e"
 
   url "https://github.com/TryQuiet/quiet/releases/download/@quiet/desktop@#{version}/Quiet-#{version}.dmg",
       verified: "github.com/TryQuiet/quiet/"
@@ -12,8 +12,6 @@ cask "quiet" do
     url :homepage
     regex(/href=.*?Quiet[._-]v?(\d+(?:\.\d+)+)\.dmg/i)
   end
-
-  depends_on macos: ">= :high_sierra"
 
   app "Quiet.app"
 

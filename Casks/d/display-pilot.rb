@@ -1,16 +1,17 @@
 cask "display-pilot" do
-  version "1.6.2.0"
-  sha256 "d337333dc6f6df3bf7448c71a2eb493650c4cd844ebde2e6ad5a541712452d2a"
+  version "1.10.8.0,260402162600"
+  sha256 "4f210353d67d229eca1396e4d77ccc835fecf7bf1e37a05f95bdad18f6c227e6"
 
-  url "https://qspublic.s3.ap-southeast-1.amazonaws.com/qspublic/qs_app/1001/Display%20Pilot%202Setup-#{version}-release.dmg",
-      verified: "qspublic.s3.ap-southeast-1.amazonaws.com/qspublic/"
+  url "https://esupportdownload.benq.com/esupport/VERTICAL%20&%20PROFESSIONAL%20DISPLAY/Software/Display%20Pilot%202/Display%20Pilot%202%20for%20Mac_V#{version.csv.first}_Mac_#{version.csv.second}.zip"
   name "Display Pilot 2"
   desc "Display control utility"
   homepage "https://www.benq.com/en-ap/monitor/software/display-pilot-2.html"
 
+  # The only checkable source of version information requires a referer to work,
+  # so we're skipping this for now.
+  # See: https://github.com/Homebrew/homebrew-cask/pull/219373#issuecomment-3054380576
   livecheck do
-    url "https://www.benq.com/en-ap/monitor/software/display-pilot-2/spec.html"
-    regex(/macOS\s*<.*?>\s*v?(\d+(?:\.\d+)+)/im)
+    skip "Requires referer for request to work"
   end
 
   depends_on macos: ">= :big_sur"

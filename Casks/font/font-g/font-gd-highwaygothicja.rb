@@ -9,7 +9,7 @@ cask "font-gd-highwaygothicja" do
 
   livecheck do
     url :homepage
-    regex(/GDHighwayGoJA[._-]Rev(\d+(?:\.\d+)*(?:b\d+)?)[._-]OTF\.zip/)
+    regex(/GDHighwayGoJA[._-]Rev(\d+(?:\.\d+)*(?:b\d+)?)[._-]OTF\.zip/i)
   end
 
   font "GDHighwayGoJA-Rev#{version}-OTF/GDhwGoJA-OTF#{version}.otf"

@@ -1,6 +1,6 @@
 cask "snagit" do
-  version "2025.1.0"
-  sha256 "1b078080b6729f8140dfc3f06a9a902061b8728757f9e2944841f0f435f1a9f9"
+  version "2026.0.1"
+  sha256 "2dd08df41232b4791e8e727185e15e568dd9bf644f665625ffc3e9f5a189c4d1"
 
   url "https://download.techsmith.com/snagitmac/releases/#{version.major[-2..]}#{version.minor_patch.no_dots}/snagit.dmg"
   name "Snagit"
@@ -18,7 +18,7 @@ cask "snagit" do
     end
   end
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: ">= :sequoia"
 
   app "Snagit.app"
 

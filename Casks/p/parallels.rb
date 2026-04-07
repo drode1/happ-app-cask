@@ -1,6 +1,6 @@
 cask "parallels" do
-  version "20.3.0-55895"
-  sha256 "06cd61804af9cbd4d83063d71ab20e9aa3207b273ac07568d71ece8a34d889f6"
+  version "26.3.0-57392"
+  sha256 "a554e51976556ff43febf8bb074eca59bdca83ee4b9b4ebebf8111c548e85bba"
 
   url "https://download.parallels.com/desktop/v#{version.major}/#{version}/ParallelsDesktop-#{version}.dmg"
   name "Parallels Desktop"
@@ -21,16 +21,15 @@ cask "parallels" do
 
   auto_updates true
   conflicts_with cask: [
-    "parallels@12",
-    "parallels@13",
     "parallels@14",
     "parallels@15",
     "parallels@16",
     "parallels@17",
     "parallels@18",
     "parallels@19",
+    "parallels@20",
   ]
-  depends_on macos: ">= :monterey"
+  depends_on macos: ">= :ventura"
 
   app "Parallels Desktop.app"
 

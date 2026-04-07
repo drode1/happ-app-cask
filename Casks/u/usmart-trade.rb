@@ -1,21 +1,30 @@
 cask "usmart-trade" do
-  version "4.0.0,41c1145e-cafa-454a-a7f1-c67ddaeafd19,2025-03-26"
-  sha256 "c6b79d90f1f496e5c679472ff58586c86e5f930e5417e1860c1f9e6ce75a1a00"
+  arch arm: "-arm64"
 
-  url "https://jy-common-prd-1257884527.cos.ap-guangzhou.myqcloud.com/admin/app-version-file/#{version.csv.third}/#{version.csv.second}/uSMART%20Trade-#{version.csv.first}.dmg",
+  version "4.5.1,7f59351d-5e8a-4e0c-88c5-b2512e426c39,2026-01-28"
+  sha256 "8e75e0ad272867d473d363edc15c2a3002cbac24038043a630274c3e26269016"
+
+  url "https://jy-common-prd-1257884527.cos.ap-guangzhou.myqcloud.com/admin/app-version-file/#{version.csv.third}/#{version.csv.second}/uSMART%20Trade-#{version.csv.first}-universal.dmg",
       verified: "jy-common-prd-1257884527.cos.ap-guangzhou.myqcloud.com/"
   name "uSMART Trade"
   desc "Stock and options trading platform"
   homepage "https://www.usmartglobal.com/"
 
   livecheck do
-    url "https://www.usmart.hk/en/download"
-    regex(%r{href=['"].*?file/(\d+[-_]\d+[-_]\d+)/((?:\w+-)+(?:\w+))/.*?Trade[-_]?(\d+(?:\.\d+)+)\.dmg}i)
-    strategy :page_match do |page, regex|
-      page.scan(regex)
-          .map { |match| "#{match[2]},#{match[1]},#{match[0]}" }
+    url "https://jy.yxzq.com/config-manager-admin/api/get-latest-package/v1", post_json: {
+      appType: 7,
+      system:  "mac",
+    }
+    regex(%r{file/(\d+[-_]\d+[-_]\d+)/((?:\w+-)+(?:\w+))/.*?Trade[-_]?(\d+(?:\.\d+)+)[._-]universal\.dmg}i)
+    strategy :json do |json, regex|
+      match = json.dig("data", 0, "url")&.match(regex)
+      next if match.blank?
+
+      "#{match[3]},#{match[2]},#{match[1]}"
     end
   end
+
+  depends_on macos: ">= :monterey"
 
   app "uSMART Trade.app"
 
@@ -24,8 +33,4 @@ cask "usmart-trade" do
     "~/Library/Preferences/com.usmart.mac.test.plist",
     "~/Library/Saved Application State/com.usmart.mac.test.savedState",
   ]
-
-  caveats do
-    requires_rosetta
-  end
 end

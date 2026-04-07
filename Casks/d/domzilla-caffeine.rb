@@ -1,6 +1,6 @@
 cask "domzilla-caffeine" do
-  version "1.5.1"
-  sha256 "04f032f9616acda0a2ad3dadeaa6d7e863d6f6b13664a7c0caf6ed8b4478c4e7"
+  version "1.6.3"
+  sha256 "0d9ff8bf1fdcf1b3a0b22cdc18e311d4d25c99a0adb411098c9f1597c11f6e15"
 
   url "https://dr-caffeine-mac.s3.amazonaws.com/Caffeine_#{version}.zip",
       verified: "dr-caffeine-mac.s3.amazonaws.com/"
@@ -15,7 +15,7 @@ cask "domzilla-caffeine" do
 
   auto_updates true
   conflicts_with cask: "caffeine"
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :ventura"
 
   app "Caffeine.app"
 

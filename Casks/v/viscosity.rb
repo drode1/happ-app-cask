@@ -1,6 +1,6 @@
 cask "viscosity" do
-  version "1.11.4"
-  sha256 "d8453dc7254c0b4214ba6ecc69a4700d5999e317273c44237c09748edc17b03f"
+  version "1.12.1"
+  sha256 "0eb06246e69f2883bd71e44367e72e0eeaa043189c4596c0f0e9e374806c7c30"
 
   url "https://swupdate.sparklabs.com/download/mac/release/viscosity/Viscosity%20#{version}.dmg"
   name "Viscosity"
@@ -13,7 +13,7 @@ cask "viscosity" do
   end
 
   auto_updates true
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :ventura"
 
   app "Viscosity.app"
 

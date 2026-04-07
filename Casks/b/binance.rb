@@ -1,9 +1,9 @@
 cask "binance" do
   arch arm: "arm64", intel: "x64"
 
-  version "1.54.17"
-  sha256  arm:   "52f09acf45fa84d565c724276fb679739aecc04c2c7c8c707779b09ec5b26632",
-          intel: "4faf46fc576d89a2c6ac797a8486b9a7e7a01b7e402034dc9a1253bb279f0bdc"
+  version "2.2.1"
+  sha256 arm:   "b69c093e610bccb1145ffae78b5ba7c7c7d8388f842d56b652740c3a1c8d426c",
+         intel: "4d96fc6f8814ee824f7bc56d6c85d65232a35ea5f85b9bc59232e3b9b7621257"
 
   url "https://ftp.binance.com/electron-desktop/mac/production/binance-#{version}-#{arch}.dmg"
   name "Binance"
@@ -16,7 +16,7 @@ cask "binance" do
   end
 
   auto_updates true
-  depends_on macos: ">= :high_sierra"
+  depends_on macos: ">= :monterey"
 
   app "Binance.app"
 

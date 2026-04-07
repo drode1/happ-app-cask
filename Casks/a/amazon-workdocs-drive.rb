@@ -1,13 +1,13 @@
 cask "amazon-workdocs-drive" do
   arch arm: "mac_v2", intel: "mac"
 
+  sha256 :no_check
+
   on_arm do
     version "1.0.11931.0"
-    sha256 :no_check
   end
   on_intel do
     version "1.0.10729.0"
-    sha256 :no_check
   end
 
   url "https://d3f2hupz96ggz3.cloudfront.net/#{arch}/AmazonWorkDocsDrive.pkg",
@@ -17,8 +17,6 @@ cask "amazon-workdocs-drive" do
   homepage "https://aws.amazon.com/workdocs/"
 
   disable! date: "2025-04-25", because: :discontinued
-
-  depends_on macos: ">= :el_capitan"
 
   pkg "AmazonWorkDocsDrive.pkg"
 

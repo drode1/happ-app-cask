@@ -1,6 +1,6 @@
 cask "fuse-t" do
-  version "1.0.47"
-  sha256 "b0121b5f92bd22f26206ed2aee8fbcb8c410ba2791fd30884faad2f2ec0407f3"
+  version "1.2.1"
+  sha256 "77e0feca3d5a3dde5bd2683b1613fb52f23385381e41b9f47216dcc88644a346"
 
   url "https://github.com/macos-fuse-t/fuse-t/releases/download/#{version}/fuse-t-macos-installer-#{version}.pkg",
       verified: "github.com/macos-fuse-t/fuse-t/"
@@ -15,11 +15,15 @@ cask "fuse-t" do
 
   pkg "fuse-t-macos-installer-#{version}.pkg"
 
-  uninstall script: {
-    executable: "/Library/Application Support/fuse-t/uninstall.sh",
-    input:      ["Y"],
-    sudo:       true,
-  }
+  uninstall script:  {
+              executable: "/Library/Application Support/fuse-t/uninstall.sh",
+              input:      ["Y"],
+              sudo:       true,
+            },
+            pkgutil: [
+              "org.fuse-t.core.#{version}",
+              "org.fuse-t.fskit.#{version}",
+            ]
 
   # No zap stanza required
 end

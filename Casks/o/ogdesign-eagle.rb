@@ -1,9 +1,9 @@
 cask "ogdesign-eagle" do
   arch arm: "arm64", intel: "x64"
 
-  version "4.0,9"
-  sha256 arm:   "061b6a262bef1240bdb384bc4f10171ca4d1d9201b12472d336ee10c58fdb880",
-         intel: "0cc7d6c1845242d3790709c7a70722ac82fa2ffa8843e3aaa6a6d1d4dc420154"
+  version "4.0,23"
+  sha256 arm:   "899cf880a15a17bb1fe54939110ec56a6a9f8af4a321de0d55c1670c6bee5377",
+         intel: "aa8ad2e62726ea1252fd63f802050d519b5728c2eb6ad2dc608938d9589a12a1"
 
   url "https://r2-app.eagle.cool/releases/Eagle-#{version.csv.first}-#{arch}-build#{version.csv.second}.dmg"
   name "Eagle"
@@ -22,7 +22,6 @@ cask "ogdesign-eagle" do
   end
 
   auto_updates true
-  depends_on macos: ">= :high_sierra"
 
   app "Eagle.app"
 

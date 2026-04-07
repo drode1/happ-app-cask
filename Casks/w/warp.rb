@@ -1,6 +1,6 @@
 cask "warp" do
-  version "0.2025.04.30.08.11.stable_01"
-  sha256 "190e1992f6cae4dce8f77dd64d6939f9d74169c777ccbdba9543ce03434e955d"
+  version "0.2026.04.01.08.39.stable_02"
+  sha256 "5032f2e8357ae5697c07c320fc3aa9bcdf70412026ff29feac1b2f1654bcd506"
 
   url "https://app.warp.dev/download/brew?version=v#{version}"
   name "Warp"
@@ -15,12 +15,14 @@ cask "warp" do
   end
 
   auto_updates true
+  depends_on macos: ">= :big_sur"
 
   app "Warp.app"
 
   zap trash: [
+    "~/.warp",
     "~/Library/Application Support/dev.warp.Warp-Stable",
-    "~/Library/Logs/warp.log",
+    "~/Library/Logs/warp.log*",
     "~/Library/Preferences/dev.warp.Warp-Stable.plist",
     "~/Library/Saved Application State/dev.warp.Warp-Stable.savedState",
   ]

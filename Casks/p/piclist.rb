@@ -1,9 +1,9 @@
 cask "piclist" do
   arch arm: "arm64", intel: "x64"
 
-  version "2.9.8"
-  sha256 arm:   "1b3f8ffe24774e584c9c07bc4807bf53f49dcb6809befa3a15c602158db3c448",
-         intel: "2fa2c9d8f0f61d26fb232aa1f64cf27314843e8a018f65dea01f2ff74274d0b2"
+  version "3.3.2"
+  sha256 arm:   "c8428ce8b939c119b706d754670b550c681703c35402e82e168eecdd5e2e6062",
+         intel: "add315e00552a6a811417ba71442e2a32c1d150369e44c6398c2e4027f752eb8"
 
   url "https://github.com/Kuingsmile/PicList/releases/download/v#{version}/PicList-#{version}-#{arch}.dmg",
       verified: "github.com/Kuingsmile/PicList/"
@@ -17,7 +17,7 @@ cask "piclist" do
   end
 
   auto_updates true
-  depends_on macos: ">= :high_sierra"
+  depends_on macos: ">= :monterey"
 
   app "PicList.app"
 

@@ -1,8 +1,11 @@
 cask "frescobaldi" do
-  version "4.0.1"
-  sha256 "f7c9848908b70b15d65a3fd4898661e274f4148cf62541ad5793ba360a4d50dc"
+  arch intel: "-Intel"
 
-  url "https://github.com/frescobaldi/frescobaldi/releases/download/v#{version}/Frescobaldi-#{version}.dmg",
+  version "4.0.5"
+  sha256 arm:   "9ddd7e2b13484a7e40ea488c58cca29b437b458925765e885ca3f5cc4c15a771",
+         intel: "640d6ee9f8bff366c7c496a22990182fb8a9cab8962d557131ff4ee15a1c1a69"
+
+  url "https://github.com/frescobaldi/frescobaldi/releases/download/v#{version}/Frescobaldi-#{version}#{arch}.dmg",
       verified: "github.com/frescobaldi/frescobaldi/"
   name "Frescobaldi"
   desc "LilyPond editor"

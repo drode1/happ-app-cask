@@ -1,6 +1,6 @@
 cask "missive" do
-  version "11.3.0"
-  sha256 "494d132c568758248c6fad6700b947d682bd419be04e9f271564be3d79bb91aa"
+  version "11.12.4"
+  sha256 "d4cfc97624a02f38844d2d28dba14f92299ba546359236f59e322d571a5fbd4e"
 
   url "https://downloads.missiveapp.com/#{version}/Missive-#{version}.dmg"
   name "Missive"
@@ -12,7 +12,8 @@ cask "missive" do
     strategy :electron_builder
   end
 
-  depends_on macos: ">= :high_sierra"
+  auto_updates true
+  depends_on macos: ">= :monterey"
 
   app "Missive.app"
 

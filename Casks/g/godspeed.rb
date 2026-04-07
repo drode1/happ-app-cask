@@ -1,6 +1,6 @@
 cask "godspeed" do
-  version "1.8.92"
-  sha256 "e0e81ae6b98a58c27e0c31f3c08966607b3a66d127a35e6be5512ace30797698"
+  version "1.9.19"
+  sha256 "61f56b65a1bf3819e96034044b3bf2faa3f2f980696564d6ece677a4512016fa"
 
   url "https://app-updates.godspeedapp.com/#{version}%2FGodspeed.zip"
   name "Godspeed"

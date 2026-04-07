@@ -1,6 +1,6 @@
 cask "mendeley-reference-manager" do
-  version "2.132.1"
-  sha256 "683dc8a17a83fb0e1dc51783ef6c7651604ea35714e6a361ed12793e6547048d"
+  version "2.144.0"
+  sha256 "f7c497fd61d9372d0be4e30b2dd53eb9d8feba7a31070bad405434c6091c3421"
 
   url "https://static.mendeley.com/bin/desktop/mendeley-reference-manager-#{version}-universal.dmg"
   name "Mendeley Reference Manager"
@@ -12,7 +12,7 @@ cask "mendeley-reference-manager" do
     regex(/href=.*?mendeley-reference-manager[._-]v?(\d+(?:\.\d+)+)(?:[._-]universal)?\.dmg/i)
   end
 
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :monterey"
 
   app "Mendeley Reference Manager.app"
 

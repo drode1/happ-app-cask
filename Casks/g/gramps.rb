@@ -1,9 +1,9 @@
 cask "gramps" do
   arch arm: "Arm", intel: "Intel"
 
-  version "6.0.1,2"
-  sha256 arm:   "3b83a876fc9110f81818b9ff040026c9c02e0e171c0b2861c691df01b6ab6909",
-         intel: "7d4a72ae4b9c7d0c72b0fb63a5cd09ce397c9c825eb52fe8e7d8c95c4b285d69"
+  version "6.0.7,1"
+  sha256 arm:   "a139ae23109cbea2e697d0ea58788bd14c9dc0bf2ca17fce8aa44344649c8641",
+         intel: "39bbeeb56512e87a9ad7dc680deb40040c3614866032d67cf79b8bf2f7cb146b"
 
   url "https://github.com/gramps-project/gramps/releases/download/v#{version.csv.first}/Gramps-#{arch}-#{version.csv.first}-#{version.csv.second}.dmg",
       verified: "github.com/gramps-project/gramps/"
@@ -28,7 +28,7 @@ cask "gramps" do
     end
   end
 
-  depends_on macos: ">= :high_sierra"
+  depends_on macos: ">= :big_sur"
 
   app "Gramps.app"
 

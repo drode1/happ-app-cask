@@ -1,6 +1,6 @@
 cask "sonos" do
-  version "84.1-63110,20BaICzCKO"
-  sha256 "9cf3dc666edb0d7a4c30555170fb84727fbe62d82415bfd16e35379d38d73b50"
+  version "90.0-67171,ZethjbGivZ"
+  sha256 "248703bb6ec9ad4753363a6d3b7bd1145184af42d1e4ade62d213a4ffed21942"
 
   url "https://update-software.sonos.com/software/#{version.csv.second}/Sonos_#{version.csv.first}.dmg"
   name "Sonos S2"
@@ -16,7 +16,6 @@ cask "sonos" do
   end
 
   auto_updates true
-  depends_on macos: ">= :el_capitan"
 
   app "Sonos.app"
 

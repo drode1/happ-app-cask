@@ -1,9 +1,9 @@
 cask "dataspell" do
   arch arm: "-aarch64"
 
-  version "2025.1,251.23774.439"
-  sha256 arm:   "f6dd63c5458ea2adeb76a9042ab3316b124fd9cbdcccd4d4b08c2d90e17b49b8",
-         intel: "dd856c72855b0309ea98774a3b4c38cf899b6e307dbd3ced316cd8cc721faa38"
+  version "2026.1,261.22158.332"
+  sha256 arm:   "ff2669136698d3b01e76e6d51bac9aacee2e39b75a219e0a0ad2a5f436915387",
+         intel: "c3f9c52dd7478bf97b56a40a9e0c61626fcb2f8f5e89ac1784afb118153a123d"
 
   url "https://download.jetbrains.com/python/dataspell-#{version.csv.first}#{arch}.dmg"
   name "DataSpell"
@@ -24,10 +24,18 @@ cask "dataspell" do
   end
 
   auto_updates true
-  depends_on macos: ">= :high_sierra"
 
   app "DataSpell.app"
-  binary "#{appdir}/DataSpell.app/Contents/MacOS/dataspell"
+  # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
+  shimscript = "#{staged_path}/dataspell.wrapper.sh"
+  binary shimscript, target: "dataspell"
+
+  preflight do
+    File.write shimscript, <<~EOS
+      #!/bin/sh
+      exec '#{appdir}/DataSpell.app/Contents/MacOS/dataspell' "$@"
+    EOS
+  end
 
   zap trash: [
     "~/Library/Application Support/DataSpell*",

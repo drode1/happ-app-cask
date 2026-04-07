@@ -1,14 +1,9 @@
 cask "cloud-pbx" do
   arch arm: "arm", intel: "intel"
 
-  on_arm do
-    version "45.2.0"
-    sha256 "79bc8464a5d9ed07443e450e0343364a90cc2300a7554285a7ed4e01dc0fc18e"
-  end
-  on_intel do
-    version "45.2.0"
-    sha256 "94a2ea8f0c2a94a93601add5b12517553031278262d8124b44f8c2107d34902b"
-  end
+  version "46.2"
+  sha256 arm:   "28482d9f530ed08391b6fbbede00d043bd4ed250ca4aec654be6982251e9e792",
+         intel: "85feae499697eb1c837edf3290f70f5eb96a8a6e43ceb2602308eff5aa731f27"
 
   url "https://cpbx-hilfe.deutschland-lan.de/de/direkthilfe/hilfe-downloads/desktop-clients/cloud-pbx-2.0-#{arch}_v#{version}",
       verified: "cpbx-hilfe.deutschland-lan.de/de/direkthilfe/hilfe-downloads/desktop-clients/"

@@ -12,6 +12,7 @@ cask "recipeui" do
   homepage "https://recipeui.com/"
 
   deprecate! date: "2024-06-23", because: :discontinued
+  disable! date: "2025-06-23", because: :discontinued
 
   auto_updates true
 

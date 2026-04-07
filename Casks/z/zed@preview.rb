@@ -1,9 +1,9 @@
 cask "zed@preview" do
   arch arm: "aarch64", intel: "x86_64"
 
-  version "0.185.6"
-  sha256 arm:   "3ae3d9df2c23d9b0bed9c3e26aa01acef06f7423acf9f2256a4b5feb5d2b6635",
-         intel: "e9ed1836668223e7d16d9f4b759ef7138b7e2ce475cd1a2528708b5cfc2e2251"
+  version "0.231.1"
+  sha256 arm:   "afe9a65ef9b5ceb671872a6f1c3afef76692ff984068cdabc5e582f5b9430a35",
+         intel: "d2cbded3c3a89448b0c60fc61aa37da5079e9451871c71ba829f1d1dbc2c9483"
 
   url "https://zed.dev/api/releases/preview/#{version}/Zed-#{arch}.dmg"
   name "Zed Preview"
@@ -18,7 +18,6 @@ cask "zed@preview" do
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
 
   app "Zed Preview.app"
   binary "#{appdir}/Zed Preview.app/Contents/MacOS/cli", target: "zed-preview"
@@ -28,6 +27,7 @@ cask "zed@preview" do
     "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/dev.zed.zed-preview.sfl*",
     "~/Library/Application Support/Zed",
     "~/Library/Caches/dev.zed.Zed-Preview",
+    "~/Library/Caches/Zed",
     "~/Library/HTTPStorages/dev.zed.Zed-Preview",
     "~/Library/Logs/Zed",
     "~/Library/Preferences/dev.zed.Zed-Preview.plist",

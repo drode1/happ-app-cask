@@ -1,6 +1,6 @@
 cask "ente" do
-  version "1.7.12"
-  sha256 "1674c7c155549a9198b85e2791671a66a89f038abe601524bb82c0687548ec0c"
+  version "1.7.22"
+  sha256 "fd84302519c04c4717de431c6116bcd7b37377516ea98080de13373a9682230c"
 
   url "https://github.com/ente-io/photos-desktop/releases/download/v#{version}/ente-#{version}-universal.dmg",
       verified: "github.com/ente-io/photos-desktop/"
@@ -14,7 +14,7 @@ cask "ente" do
   end
 
   auto_updates true
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :monterey"
 
   app "ente.app"
 

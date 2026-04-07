@@ -2,19 +2,19 @@ cask "wizcli" do
   arch arm: "arm64", intel: "amd64"
   os macos: "darwin", linux: "linux"
 
-  version "0.81.0"
-  sha256 arm:          "5b21760aee91d6cf29b3d9425446a50a50fed44d5f44460bf9bbeed0614c4289",
-         x86_64:       "8fc06218d7174aae820db6b0a25c4fd40a3ba09fe8819227b4d9febbec90f78c",
-         arm64_linux:  "91d7d0b919f6f8925c5c87fefd1acfe3c65698f39205c107bb57e7d563748533",
-         x86_64_linux: "b21b6eb20870d70645f7520607ae81b120ffbe265a0c9e2b49dc9f09705b65f4"
+  version "1.40.0"
+  sha256 arm:          "b989c82aaf8bad228eb741d60fc6c28418bb05852b9da86e8cd563d0a7b0191a",
+         x86_64:       "cd041a09d55e9a0f9aeb0ba2bd94436922ee319c9fb98e345cb79c4eb2b3a5a1",
+         arm64_linux:  "e0808d3c4d285223c8b4107ce629deb2b8e7c493328cf3b05ac0f1723eac65fa",
+         x86_64_linux: "594afc92815728055882dca0e82334ac02d58fb4c1f430f5e4635ea2823284f4"
 
-  url "https://downloads.wiz.io/wizcli/#{version}/wizcli-#{os}-#{arch}"
+  url "https://downloads.wiz.io/v#{version.major}/wizcli/#{version}/wizcli-#{os}-#{arch}"
   name "Wiz CLI"
   desc "CLI for interacting with the Wiz platform"
   homepage "https://www.wiz.io/"
 
   livecheck do
-    url "https://downloads.wiz.io/wizcli/latest/wizcli-version"
+    url "https://downloads.wiz.io/v#{version.major}/wizcli/latest/wizcli-version"
     regex(/cli:\s"(\d+(?:\.\d+)+)/i)
   end
 

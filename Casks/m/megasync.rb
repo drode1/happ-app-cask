@@ -1,7 +1,7 @@
 cask "megasync" do
   arch arm: "Arm64"
 
-  version "5.11.0.3"
+  version "6.2.1.0"
   sha256 :no_check
 
   url "https://mega.nz/MEGAsyncSetup#{arch}.dmg"
@@ -15,7 +15,6 @@ cask "megasync" do
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
 
   app "MEGAsync.app"
 

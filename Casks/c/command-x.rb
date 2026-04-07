@@ -9,6 +9,7 @@ cask "command-x" do
   homepage "https://sindresorhus.com/command-x"
 
   deprecate! date: "2024-07-09", because: :moved_to_mas
+  disable! date: "2025-07-09", because: :moved_to_mas
 
   depends_on macos: ">= :ventura"
 

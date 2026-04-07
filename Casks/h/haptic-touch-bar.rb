@@ -9,8 +9,7 @@ cask "haptic-touch-bar" do
   homepage "https://www.haptictouchbar.com/"
 
   deprecate! date: "2025-03-30", because: :unmaintained
-
-  depends_on macos: ">= :sierra"
+  disable! date: "2026-03-30", because: :unmaintained
 
   app "Haptic Touch Bar.app"
 

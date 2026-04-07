@@ -1,11 +1,16 @@
 cask "font-lxgw-wenkai" do
-  version "1.511"
-  sha256 "0611c053032c29f971b2d175268cdcb8ef7923d658221589b47cb6e9fd722af9"
+  version "1.522"
+  sha256 "3b596205423d838ccd0965bfa2c7e8b6ebcb9d9284e1809e234ad1d5f441adef"
 
   url "https://github.com/lxgw/LxgwWenKai/releases/download/v#{version}/lxgw-wenkai-v#{version}.zip"
   name "LXGW WenKai"
   name "霞鹜文楷"
   homepage "https://github.com/lxgw/LxgwWenKai"
+
+  livecheck do
+    url :url
+    strategy :github_releases
+  end
 
   font "lxgw-wenkai-v#{version}/LXGWWenKai-Light.ttf"
   font "lxgw-wenkai-v#{version}/LXGWWenKai-Medium.ttf"

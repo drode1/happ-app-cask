@@ -1,9 +1,8 @@
 cask "epilogue-playback" do
-  version "1.7.0"
-  sha256 "8744fac6c977138128fd13e3d8f46a27a2cca207aa25837894a69d102c0bce21"
+  version "1.9.0"
+  sha256 "457518b52b781baa376c24fa84382396b1ce87905613ef5aed8137b5c7f09e5a"
 
-  url "https://epilogue.nyc3.digitaloceanspaces.com/releases/software/Playback/version/#{version}/release/mac/Playback.dmg",
-      verified: "epilogue.nyc3.digitaloceanspaces.com/releases/software/Playback/version/"
+  url "https://releases.epilogue.co/desktop/playback/#{version}/release/macos/Playback.dmg"
   name "Epilogue Playback"
   desc "Play and manage Game Boy cartridges on your computer"
   homepage "https://www.epilogue.co/"
@@ -13,7 +12,7 @@ cask "epilogue-playback" do
     regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/release/mac}i)
   end
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :monterey"
 
   app "Playback.app"
 

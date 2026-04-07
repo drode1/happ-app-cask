@@ -1,6 +1,6 @@
 cask "proton-mail-bridge" do
-  version "3.19.0"
-  sha256 "1f509ae11d49ce961d5cd2c05d11d162ca3fbea8e2867b3643ec2dbf900ccd0a"
+  version "3.23.1"
+  sha256 "7fd317e8ef72a8ec787f6b7be34e329119f56adacac9c2ce055b55ca2bb277fd"
 
   url "https://github.com/ProtonMail/proton-bridge/releases/download/v#{version}/Bridge-Installer.dmg",
       verified: "github.com/ProtonMail/proton-bridge/"
@@ -14,6 +14,7 @@ cask "proton-mail-bridge" do
   end
 
   auto_updates true
+  depends_on macos: ">= :big_sur"
 
   app "Proton Mail Bridge.app"
 

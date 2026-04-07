@@ -1,5 +1,5 @@
 cask "free-download-manager" do
-  version "6.26.2"
+  version "6.33.2"
   sha256 :no_check # required as upstream package is updated in-place
 
   url "https://files2.freedownloadmanager.org/#{version.major}/latest/fdm.dmg"
@@ -13,7 +13,6 @@ cask "free-download-manager" do
   end
 
   auto_updates true
-  depends_on macos: ">= :sierra"
 
   app "Free Download Manager.app"
 

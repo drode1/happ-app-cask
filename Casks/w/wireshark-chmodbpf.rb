@@ -1,21 +1,17 @@
 cask "wireshark-chmodbpf" do
-  arch arm: "Arm", intel: "Intel"
+  version "4.6.4"
+  sha256 "08150f79cfc5828820f991b6d944c68536db9595b1c3052982bbde79fb2053df"
 
-  version "4.4.6"
-  sha256 arm:   "37a664d6e4708266553c7b6b734b214b90385b1fd58a6bf1a173eb73284cb4dd",
-         intel: "b68394def6666d6922d82e37ec8fca456bb17a10b9b678e479b6002d58fc43de"
-
-  url "https://www.wireshark.org/download/osx/Wireshark%20#{version}%20#{arch}%2064.dmg"
+  url "https://www.wireshark.org/download/osx/all-versions/Wireshark%20#{version}.dmg"
   name "Wireshark-ChmodBPF"
   desc "Network protocol analyzer"
   homepage "https://www.wireshark.org/"
 
   livecheck do
-    cask "wireshark"
+    cask "wireshark-app"
   end
 
-  conflicts_with cask: "wireshark"
-  depends_on macos: ">= :sierra"
+  conflicts_with cask: "wireshark-app"
 
   pkg "Install ChmodBPF.pkg"
 

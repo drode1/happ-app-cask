@@ -1,19 +1,16 @@
 cask "mailbird" do
-  arch arm: "Apple-silicon", intel: "Intel"
-  url_folder = on_arch_conditional arm: "apple", intel: "intel"
-  livecheck_arch = on_arch_conditional arm: "arm64", intel: "x86_64"
+  arch arm: "arm64", intel: "x86_64"
 
-  version "1.6.2"
-  sha256 arm:   "cc3062567adfa0bc13690c71e90bcea800b52afb697d51caee4d51263c3f4683",
-         intel: "acfceeea236b9491c1af02d252f6d75a4c3cf55f22503e698be67de2f569b18f"
+  version "1.9.2"
+  sha256 "1b77fcd1c04de9be968930e778c93de37557db3c53839bf2e0e95cb045a7a47e"
 
-  url "https://download.getmailbird.com/installers/mailbird_next/macos/#{url_folder}/Mailbird-for-Mac-with-#{arch}-version-#{version}.dmg"
+  url "https://download.getmailbird.com/installers/mailbird_next/macos/Mailbird-for-Mac-#{version}.dmg"
   name "Mailbird"
   desc "Email client"
   homepage "https://www.getmailbird.com/"
 
   livecheck do
-    url "https://links.getmailbird.com/mailbird_mac_#{livecheck_arch}_installer"
+    url "https://links.getmailbird.com/mailbird_mac_#{arch}_installer"
     strategy :header_match
   end
 

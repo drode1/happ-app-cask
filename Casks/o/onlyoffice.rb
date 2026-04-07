@@ -1,9 +1,9 @@
 cask "onlyoffice" do
   arch arm: "arm", intel: "x86_64"
 
-  version "8.3.3"
-  sha256 arm:   "20fc5074d9a661fd777a07ff26f7cd95dc57ca0d08d69f590dd724f05250ad43",
-         intel: "e3522b70c1905a697e7a714514dc701e5b29559d8c619f96bfb4373bcd0ef035"
+  version "9.3.1"
+  sha256 arm:   "c7c17bd32eaa86f2a33cf2e7f5de85d58d65d022ff3667bcf3cf1eed69eed511",
+         intel: "17b56778cd6a13d622d532d1cbb61195a2db4fe69034cf705086d07043a4433e"
 
   url "https://download.onlyoffice.com/install/desktop/editors/mac/#{arch}/updates/ONLYOFFICE-#{arch}-#{version}.zip"
   name "ONLYOFFICE"
@@ -20,12 +20,14 @@ cask "onlyoffice" do
   end
 
   auto_updates true
-  depends_on macos: ">= :sierra"
+  depends_on macos: ">= :big_sur"
 
   app "ONLYOFFICE.app"
 
   zap trash: [
     "~/Library/Application Support/asc.onlyoffice.ONLYOFFICE",
+    "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/asc.onlyoffice.onlyoffice.sfl*",
+    "~/Library/HTTPStorages/asc.onlyoffice.ONLYOFFICE",
     "~/Library/Preferences/asc.onlyoffice.editors-helper-renderer.plist",
     "~/Library/Preferences/asc.onlyoffice.ONLYOFFICE.plist",
   ]

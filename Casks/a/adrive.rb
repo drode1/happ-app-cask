@@ -1,9 +1,9 @@
 cask "adrive" do
   arch arm: "-arm64"
 
-  version "6.8.6"
-  sha256 arm:   "67a521702752b13f1afe1cd705eeade33363705af29863a5dd1c517cf77b4b5a",
-         intel: "140dd4d34b051ea134533c4c82499a7152abb95b5bc735b93ba9a1870023e2d3"
+  version "6.9.0"
+  sha256 arm:   "d34b82b8200fcd291fa3713daf6e98b8f4ac8731f3ca9d7a94dc5b8de9e819af",
+         intel: "b7bf89688504c5a18bc9bf96c03aaa8e48b5cb557647fe780f68e780a1fda60b"
 
   url "https://cdn.aliyundrive.net/downloads/apps/desktop/aDrive-#{version}#{arch}.dmg",
       verified:   "cdn.aliyundrive.net/",
@@ -19,7 +19,6 @@ cask "adrive" do
   end
 
   auto_updates true
-  depends_on macos: ">= :high_sierra"
 
   app "aDrive.app"
 

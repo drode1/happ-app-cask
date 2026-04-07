@@ -1,6 +1,6 @@
 cask "neteasemusic" do
-  version "3.0.13.2486"
-  sha256 "90302cbf7014eb1f781b9f22194ccbd6c15118219175f69235eb25593003a869"
+  version "3.1.5.3236"
+  sha256 "cbc066ea327da5350a42aede1bcd0c6132addc7c2522e5a69823e4b2aae734ff"
 
   url "https://d1.music.126.net/dmusic/NeteaseCloudMusic_Music_official_#{version}.dmg",
       verified:   "d1.music.126.net/",
@@ -24,7 +24,6 @@ cask "neteasemusic" do
   end
 
   auto_updates true
-  depends_on macos: ">= :mojave"
 
   app "NeteaseMusic.app"
 

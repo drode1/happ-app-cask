@@ -1,6 +1,6 @@
 cask "holavpn" do
-  version "3.5,1.234.721"
-  sha256 "0f96dddb1e4c63809c5ee6e1608b24e6127f9dfddbc665cdae59cb541eb2e5ec"
+  version "3.7,1.251.91"
+  sha256 "7688768cf786b1d7f41ae07defeed424034aa53334109ee607c975a672d51d49"
 
   url "https://cdn4.hola.org/static/HolaVPN2E-#{version.csv.first}-#{version.csv.second}.dmg"
   name "Hola VPN"
@@ -14,8 +14,6 @@ cask "holavpn" do
       page.scan(regex).map { |match| "#{match[0]},#{match[1]}" }
     end
   end
-
-  depends_on macos: ">= :catalina"
 
   app "HolaVPN2E.app"
 

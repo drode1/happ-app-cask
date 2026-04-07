@@ -1,9 +1,9 @@
 cask "chatbox" do
   arch arm: "-arm64"
 
-  version "1.12.2"
-  sha256 arm:   "f0e24284aaecf0d008597f4be52d286b0eaf830833720897a9429267331a8c9f",
-         intel: "57f90a106c95470107b8105014eab597cece439474531b83a9ec0f6917980cbf"
+  version "1.20.0"
+  sha256 arm:   "9a5ef16f0c8027781db15345377126021b1aae67847c4e31d7ce30e46d201b55",
+         intel: "587d870b23d6113dec0b5fc3c3cfada33f185701b10c0aa861ca12163739f1eb"
 
   url "https://download.chatboxai.app/releases/Chatbox-#{version}#{arch}.dmg"
   name "Chatbox"
@@ -16,7 +16,7 @@ cask "chatbox" do
   end
 
   auto_updates true
-  depends_on macos: ">= :high_sierra"
+  depends_on macos: ">= :big_sur"
 
   app "chatbox.app"
 

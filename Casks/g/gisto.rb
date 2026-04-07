@@ -1,15 +1,22 @@
 cask "gisto" do
   arch arm: "aarch64", intel: "x64"
 
-  version "2.2.4"
-  sha256 arm:   "fa06133fbc3146790472d209c6d4072aa758d027547d0c210e5f0ad99991d9d9",
-         intel: "674ac30cd9b77ccbf72d07f258adefaf6907489e09fa0307c1ae321dd3842053"
+  version "2.6.2"
+  sha256 arm:   "f1b916d747125c9b32b499c2e7c2ca785e90fe8613f95ca15398f6711f5b7306",
+         intel: "4eaf2006fabbf8aae6bec687d5a01af57f6bba254c066c004d27d9bbc097f2b4"
 
   url "https://github.com/Gisto/Gisto/releases/download/v#{version}/Gisto_#{version}_#{arch}.dmg",
       verified: "github.com/Gisto/Gisto/"
   name "Gisto"
   desc "Snippets management desktop application"
   homepage "https://www.gisto.org/"
+
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   app "Gisto.app"
 

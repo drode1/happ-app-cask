@@ -1,6 +1,6 @@
 cask "opencat" do
-  version "2.52.1,1376"
-  sha256 "c3a4d19a34317a6ff3e3d5d889ed5758774be4eb048baa65152511ebc8249b83"
+  version "2.88.1,1909"
+  sha256 "5c3c38ddd545a8edeacfb434f71ac1cd965120256a262a2d85b18fa9ab9c5053"
 
   url "https://opencat.app/releases/OpenCat-#{version.csv.first}.#{version.csv.second}.dmg"
   name "OpenCat"
@@ -16,7 +16,7 @@ cask "opencat" do
   end
 
   auto_updates true
-  depends_on macos: ">= :ventura"
+  depends_on macos: ">= :sonoma"
 
   app "OpenCat.app"
 

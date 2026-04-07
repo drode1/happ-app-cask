@@ -1,6 +1,6 @@
 cask "keepassxc@snapshot" do
-  version "2.8.0,262788"
-  sha256 "8dba3b4d84de3c8cdf765be5aceb2e852960f73bd72922904d5b094a858d351b"
+  version "2.8.0,282464"
+  sha256 "74e9e535e1c6f151daca721749e2d210615056b61926ce8f89590b52bc0586d3"
 
   url "https://snapshot.keepassxc.org/build-#{version.csv.second}/KeePassXC-#{version.csv.first}-snapshot.dmg"
   name "KeePassXC"
@@ -29,10 +29,29 @@ cask "keepassxc@snapshot" do
     end
   end
 
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
+  conflicts_with cask: [
+    "keepassxc",
+    "keepassxc@beta",
+  ]
+  depends_on macos: ">= :monterey"
+
   app "KeePassXC.app"
   binary "#{appdir}/KeePassXC.app/Contents/MacOS/keepassxc-cli"
 
-  zap trash: "~/.keepassxc"
+  uninstall quit: "org.keepassxc.keepassxc"
+
+  zap trash: [
+    "~/.keepassxc",
+    "~/Library/Application Support/CrashReporter/KeePassXC_*.plist",
+    "~/Library/Application Support/keepassxc",
+    "~/Library/Caches/org.keepassx.keepassxc",
+    "~/Library/Logs/DiagnosticReports/KeePassXC_*.crash",
+    "~/Library/Preferences/keepassxc.keepassxc.plist",
+    "~/Library/Preferences/org.keepassx.keepassxc.plist",
+    "~/Library/Saved Application State/org.keepassx.keepassxc.savedState",
+  ]
 
   caveats do
     requires_rosetta

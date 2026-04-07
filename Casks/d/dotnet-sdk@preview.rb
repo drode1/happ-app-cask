@@ -1,9 +1,9 @@
 cask "dotnet-sdk@preview" do
   arch arm: "arm64", intel: "x64"
 
-  version "9.0.203"
-  sha256 arm:   "03608b761ea4c271f1693ea87d743ec50187ee6dc198061404743017c2b85994",
-         intel: "2d99e0836846703e7d85d3fff21bd14f06effb9f5847ae422a04e807820dd4fa"
+  version "11.0.100-preview.2.26159.112"
+  sha256 arm:   "14843284bbee7a5a2b1fa814e2d6809404e5746789fac6151a2a8fd07bed786d",
+         intel: "7a03a5d3c210b9f567433b350834965ac8e81365f3069e7a8d888fe189e77e3c"
 
   url "https://builds.dotnet.microsoft.com/dotnet/Sdk/#{version}/dotnet-sdk-#{version}-osx-#{arch}.pkg"
   name ".NET SDK"
@@ -20,11 +20,11 @@ cask "dotnet-sdk@preview" do
   end
 
   conflicts_with cask: [
-    "dotnet",
+    "dotnet-runtime",
+    "dotnet-runtime@preview",
     "dotnet-sdk",
-    "dotnet@preview",
-  ], formula: "dotnet"
-  depends_on macos: ">= :mojave"
+  ]
+  depends_on macos: ">= :monterey"
 
   pkg "dotnet-sdk-#{version.csv.first}-osx-#{arch}.pkg"
   binary "/usr/local/share/dotnet/dotnet"

@@ -1,6 +1,6 @@
 cask "funter" do
-  version "6.2.7,360"
-  sha256 "779dfce67b3cbabc88ffd3ec7979556081f9ef72281c33bf6f1c824c2624a78f"
+  version "7.1,366"
+  sha256 "56f516c28396fc5cb795f6fb4c639e40047e7df8d0a25b53c030a85998f2d727"
 
   url "https://download.nektony.com/download/funter/Funter.dmg?build=#{version.csv.second}"
   name "Funter"
@@ -11,8 +11,6 @@ cask "funter" do
     url "https://download.nektony.com/pro-support/v3/funter/update/update.xml"
     strategy :sparkle
   end
-
-  depends_on macos: ">= :high_sierra"
 
   app "Funter #{version.major}.app"
 

@@ -10,9 +10,9 @@ cask "ithoughtsx" do
   homepage "https://www.toketaware.com/ithoughts-osx"
 
   deprecate! date: "2024-07-11", because: :unmaintained
+  disable! date: "2025-07-11", because: :unmaintained
 
   auto_updates true
-  depends_on macos: ">= :el_capitan"
 
   app "iThoughtsX.app"
 

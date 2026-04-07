@@ -1,6 +1,6 @@
 cask "weiyun" do
-  version "5.2.1498"
-  sha256 "dab41f375b026d1c0271cf2b33f71aec7348b8daf3c4aade8cb6e531dde20474"
+  version "5.2.1581"
+  sha256 "242648a87b6b3d806aeb930715a88e5406cac91c37098b1d75956fbe1cc98ff9"
 
   url "https://dldir1.qq.com/weiyun/electron-update/release/#{version}/Weiyun-mac-x64-#{version}.dmg",
       verified: "dldir1.qq.com/weiyun/"
@@ -14,8 +14,6 @@ cask "weiyun" do
       json.dig("electron_mac", "version")
     end
   end
-
-  depends_on macos: ">= :high_sierra"
 
   app "Weiyun.app"
 

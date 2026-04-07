@@ -1,21 +1,21 @@
 cask "sketchup" do
-  version "2025.0.633.273"
-  sha256 "d72611f3d149675c3bbc6d4463ea2c297d9a54258a4ebfd9938134ca3a5d0bf9"
+  version "2026.1.253.80"
+  sha256 "594522000d9a5b3f1f49ed5180604a8aab5a3fcd7fc0954739d91756eb73355d"
 
-  url "https://download.sketchup.com/SketchUp-#{version.dots_to_hyphens}.dmg"
+  url "https://download.sketchup.com/SketchUp-#{version.dots_to_hyphens}.dmg",
+      verified: "download.sketchup.com/"
   name "SketchUp"
   desc "3D modeling software used to create and manipulate 3D models"
-  homepage "https://www.sketchup.com/"
+  homepage "https://sketchup.trimble.com/en"
 
   livecheck do
-    url "https://www.sketchup.com/download/all"
-    strategy :page_match
-    regex(/SketchUp-(\d+(?:-\d+)+)\.dmg/i)
-    strategy :page_match do |page, regex|
-      match = page.scan(regex).map { |v| v.first.tr("-", ".") }
+    url "https://sketchup.trimble.com/sketchup/SketchUpPro-dmg"
+    regex(/SketchUp[._-]v?(\d+(?:[.-]\d+)+)\.dmg/i)
+    strategy :header_match do |headers, regex|
+      match = headers["location"].match(regex)
       next if match.blank?
 
-      match
+      match[1].tr("-", ".")
     end
   end
 

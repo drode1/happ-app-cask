@@ -2,9 +2,9 @@ cask "obs@beta" do
   arch arm: "apple", intel: "intel"
   livecheck_folder = on_arch_conditional arm: "arm64", intel: "x86_64"
 
-  version "31.0.0-rc1"
-  sha256 arm:   "479f4fbd4e898239f2fd398f4107ca3726d64b2302c7e0ca293e2a6f1e79101a",
-         intel: "41448d7c0cd78b468fa0219dd35e0072d62ec4db919252bd2e9ccb29f6edaf87"
+  version "32.1.0-rc4"
+  sha256 arm:   "129597da2c4184ae26acf54ee5afc4fa80bce913c61135fab6e035d8e945bc3a",
+         intel: "e2bce0c859694ac9968316d1844f1a0ce76fe5ac1197363496db2f3d52cf7260"
 
   url "https://cdn-fastly.obsproject.com/downloads/obs-studio-#{version}-macos-#{arch}.dmg"
   name "OBS"
@@ -25,7 +25,7 @@ cask "obs@beta" do
 
   auto_updates true
   conflicts_with cask: "obs"
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :monterey"
 
   app "OBS.app"
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)

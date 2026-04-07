@@ -9,8 +9,7 @@ cask "inssider" do
   homepage "https://www.metageek.com/products/inssider/"
 
   deprecate! date: "2025-03-02", because: :unmaintained
-
-  depends_on macos: ">= :sierra"
+  disable! date: "2026-03-02", because: :unmaintained
 
   app "inSSIDer.app"
 

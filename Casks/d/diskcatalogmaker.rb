@@ -1,8 +1,8 @@
 cask "diskcatalogmaker" do
-  version "9.1.3"
-  sha256 "0b9c17077fe5e45cf73154c485d44f2b77f63c6cfe76a3f8f0d2fa9634b17d95"
+  version "9.2"
+  sha256 "fe9722f5255719be6b604f6d9a8edb2e78dc12f1630985c9ff5d80827040ea4d"
 
-  url "https://download.diskcatalogmaker.com/download/zip/DiskCatalogMaker#{version.no_dots}.zip"
+  url "https://diskcatalogmaker.com/download/zip/DiskCatalogMaker#{version.no_dots}.zip"
   name "DiskCatalogMaker"
   desc "Disk management tool"
   homepage "https://diskcatalogmaker.com/"
@@ -13,7 +13,6 @@ cask "diskcatalogmaker" do
   end
 
   auto_updates true
-  depends_on macos: ">= :mojave"
 
   app "DiskCatalogMaker.app"
 

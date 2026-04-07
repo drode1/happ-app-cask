@@ -1,14 +1,14 @@
 cask "leader-key" do
-  version "1.14.0"
-  sha256 "c28c705465839f5347ea38da70c3454c650f70629babf953266a6e42a30472d8"
+  version "1.17.3"
+  sha256 "07fabeef4a0704b7568f323389b509d3ff5f79df6f8b59f27abec1174886346f"
 
-  url "https://github.com/mikker/LeaderKey.app/releases/download/v#{version}/Leader.Key.app.zip"
+  url "https://github.com/mikker/LeaderKey/releases/download/v#{version}/Leader.Key.app.zip"
   name "Leader Key"
   desc "Application launcher"
-  homepage "https://github.com/mikker/LeaderKey.app"
+  homepage "https://github.com/mikker/LeaderKey"
 
   livecheck do
-    url "https://mikker.github.io/LeaderKey.app/appcast.xml"
+    url "https://mikker.github.io/LeaderKey/appcast.xml"
     strategy :sparkle, &:short_version
   end
 

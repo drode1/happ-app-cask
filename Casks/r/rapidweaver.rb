@@ -1,6 +1,6 @@
 cask "rapidweaver" do
-  version "9.4.3,21131"
-  sha256 "4ba5d01e25936c9f02c2582837dcdb72ab7824e14edffd2105c8054cd9d86910"
+  version "9.6.8,21159"
+  sha256 "3f36c8bded3b4afd42307c3e2c393c9a49df3beea763984d3718373eeaadcbd6"
 
   url "https://dl.devant.io/v1/3c53887f-427a-4af7-9144-ee16178c62f4/#{version.csv.second}/RapidWeaver.zip",
       verified: "dl.devant.io/v1/3c53887f-427a-4af7-9144-ee16178c62f4/"
@@ -12,8 +12,6 @@ cask "rapidweaver" do
     url "https://update.devant.io/v1/feed/3c53887f-427a-4af7-9144-ee16178c62f4"
     strategy :sparkle
   end
-
-  depends_on macos: ">= :mojave"
 
   app "RapidWeaver.app"
 

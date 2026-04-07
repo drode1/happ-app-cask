@@ -8,8 +8,7 @@ cask "insomnium" do
   homepage "https://github.com/ArchGPT/insomnium"
 
   deprecate! date: "2024-07-28", because: :discontinued
-
-  depends_on macos: ">= :high_sierra"
+  disable! date: "2025-07-28", because: :discontinued
 
   app "Insomnium.app"
 

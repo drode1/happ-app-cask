@@ -1,6 +1,6 @@
 cask "font-cozette" do
-  version "1.28.0"
-  sha256 "18edb5af56a38b4a4fcc5772ccab38069a669682d28c45bedd899eda30853d72"
+  version "1.30.0"
+  sha256 "c1515e63ba969d6099168c7a57b68c642025a73cd5112c39f62112d2dd16b709"
 
   url "https://github.com/slavfox/Cozette/releases/download/v.#{version}/CozetteFonts-v-#{version.dots_to_hyphens}.zip"
   name "Cozette"

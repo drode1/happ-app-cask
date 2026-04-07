@@ -12,9 +12,9 @@ cask "pycharm-edu" do
   homepage "https://www.jetbrains.com/pycharm-edu/"
 
   deprecate! date: "2025-02-10", because: :discontinued
+  disable! date: "2026-02-11", because: :discontinued
 
   auto_updates true
-  depends_on macos: ">= :el_capitan"
 
   app "PyCharm Edu.app"
 

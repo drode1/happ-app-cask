@@ -2,36 +2,29 @@ cask "gologin" do
   arch arm: "-arm64"
   livecheck_arch = on_arch_conditional arm: "-arm"
 
-  version "3.3.91"
-  sha256 arm:   "3a4e3231ebf8d3259c42bb05faaa2250b5ffba3164c12a783f5f051f88470e2a",
-         intel: "14e71a9b7de54b59c58fead556ec729a2a4842a88b733811e2ac1c50dbed1ae1"
+  version "4.2.2"
+  sha256 arm:   "8f7e07918f73b8df65787cec0f7afd36233bf1aeb3164dda433a3e283a15e798",
+         intel: "aa813e524ddbbddd3174fdd9270b6f58651bde720705edfbde6bb6e9f1088759"
 
-  url "https://releases#{livecheck_arch}.gologin.com/GoLogin-#{version}#{arch}.dmg"
-  name "GoLogin"
+  url "https://releases#{livecheck_arch}.gologin.com/Gologin-#{version}#{arch}.dmg"
+  name "Gologin"
   desc "Antidetect browser"
   homepage "https://gologin.com/"
 
-  # The `latest-mac.yml` file is served with a `Content-Encoding: aws-chunked`
-  # header, which will cause curl to error if the `--compressed` option is used.
-  # This checks the version on the first-party download page until we can
-  # account for this situation in livecheck.
   livecheck do
-    url "https://gologin.com/download/"
-    regex(%r{href=.*?/release/gologin[._-]v?(\d+(?:[.-]\d+)+)}i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| match[0].tr("-", ".") }
-    end
+    url "https://releases.gologin.com/latest-mac.yml"
+    strategy :electron_builder
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :monterey"
 
-  app "GoLogin.app"
+  app "Gologin.app"
 
   zap trash: [
     "~/.gologin",
     "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.gologin.desktop.sfl*",
-    "~/Library/Application Support/GoLogin",
+    "~/Library/Application Support/Gologin",
     "~/Library/Preferences/com.gologin.desktop.plist",
     "~/Library/Preferences/com.gologin.orbita.plist",
     "~/Library/Saved Application State/com.gologin.desktop.savedState",

@@ -1,6 +1,6 @@
 cask "godot@3" do
-  version "3.6"
-  sha256 "00cc8c8708756ad336d36bbfafd0cb6becd61e5b8e7d826309a3f4d5dda2c275"
+  version "3.6.2"
+  sha256 "1430f3fae6240795a0bc8c52043f0ed712ecf5867d0fddc9e3a2abcd37bea8db"
 
   url "https://github.com/godotengine/godot/releases/download/#{version}-stable/Godot_v#{version}-stable_osx.universal.zip",
       verified: "github.com/godotengine/godot/"
@@ -14,7 +14,6 @@ cask "godot@3" do
   end
 
   conflicts_with cask: "godot"
-  depends_on macos: ">= :sierra"
 
   app "Godot.app"
   binary "#{appdir}/Godot.app/Contents/MacOS/Godot", target: "godot"

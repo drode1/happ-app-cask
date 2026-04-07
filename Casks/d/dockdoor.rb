@@ -1,16 +1,16 @@
 cask "dockdoor" do
-  version "1.8"
-  sha256 "8f7a00c6d6fa4d4388acbafb4479e2edc72c0b8e426d55b44398fa5f5e307f2d"
+  version "1.34.1"
+  sha256 "c3bd4064dea6b7f384325f4d7da9f8de06f3553ae63eb1b5b6922e10d37c30e8"
 
-  url "https://github.com/ejbills/DockDoor/releases/download/v#{version}/DockDoor.dmg",
+  url "https://github.com/ejbills/DockDoor/releases/download/#{version}/DockDoor.dmg",
       verified: "github.com/ejbills/DockDoor/"
   name "DockDoor"
   desc "Window peeking utility app"
   homepage "https://dockdoor.net/"
 
   livecheck do
-    url "https://dockdoor.net/appcast.xml"
-    strategy :sparkle
+    url :url
+    strategy :github_latest
   end
 
   auto_updates true

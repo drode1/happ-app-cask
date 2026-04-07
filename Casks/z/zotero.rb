@@ -1,6 +1,6 @@
 cask "zotero" do
-  version "7.0.15"
-  sha256 "0408dfe37faf8a128c4ed7441f7d92fb12e29d7c5b661ff04a7a3bd14f90dafb"
+  version "8.0.5"
+  sha256 "128023036bd4dd3a861042f5918333491d61cd72dec3fd604ddf7488fa154f37"
 
   url "https://download.zotero.org/client/release/#{version}/Zotero-#{version}.dmg"
   name "Zotero"
@@ -8,15 +8,12 @@ cask "zotero" do
   homepage "https://www.zotero.org/"
 
   livecheck do
-    url "https://www.zotero.org/download/client/update/0/0/Darwin/0/release/update.xml?force=1"
-    strategy :xml do |xml|
-      xml.get_elements("//update").map { |item| item.attributes["version"] }
-    end
+    url "https://www.zotero.org/download/client/dl?channel=release&platform=mac"
+    strategy :header_match
   end
 
   auto_updates true
   conflicts_with cask: "zotero@beta"
-  depends_on macos: ">= :sierra"
 
   app "Zotero.app"
 

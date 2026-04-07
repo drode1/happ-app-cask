@@ -1,6 +1,6 @@
 cask "microsoft-teams" do
-  version "25079.2107.3576.1611"
-  sha256 "e580d4691c89ba178edd7b494f2fac981e121fac912c4cb592bf9454c15904ae"
+  version "26059.604.4471.2584"
+  sha256 "8057135397aa2e8a59fada5b75090e0129dee9bb9415cd949c4d70271636053d"
 
   url "https://statics.teams.cdn.office.net/production-osx/#{version}/MicrosoftTeams.pkg",
       verified: "statics.teams.cdn.office.net/production-osx/"
@@ -21,14 +21,13 @@ cask "microsoft-teams" do
   livecheck do
     url "https://config.teams.microsoft.com/config/v1/MicrosoftTeams/#{version}?environment=prod&audienceGroup=general&teamsRing=general&agent=TeamsBuilds"
     strategy :json do |json|
-      json.dig("BuildSettings", "WebView2", "macOS", "latestVersion")
+      json.dig("BuildSettings", "WebView2Canary", "macOS", "latestVersion")
     end
   end
 
   auto_updates true
   conflicts_with cask: "microsoft-office-businesspro"
-  depends_on cask: "microsoft-auto-update"
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :ventura"
 
   pkg "MicrosoftTeams.pkg",
       choices: [
@@ -43,7 +42,6 @@ cask "microsoft-teams" do
             quit:      "com.microsoft.autoupdate2",
             pkgutil:   [
               "com.microsoft.MSTeamsAudioDevice",
-              "com.microsoft.package.Microsoft_AutoUpdate.app",
               "com.microsoft.teams2",
             ],
             delete:    [

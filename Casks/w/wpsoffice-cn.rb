@@ -1,11 +1,11 @@
 cask "wpsoffice-cn" do
   arch arm: "arm64", intel: "x64"
 
-  version "7.4.0,8981"
-  sha256 arm:   "853bdcbb3afbbff76481756eaa14f9b20e1de1c1db4c1dd0f5d04a25b46eacdd",
-         intel: "2a8668cf0bfb46a01d14ddf9e034f6ff89c64562c6eaeab763246fe3440ab0c0"
+  version "12.1.25867"
+  sha256 arm:   "adb1f2fc5a7acbb605d5e60b0589ba8d6d9de3b8dac99f823d51b793e2c2d5f5",
+         intel: "f72580c45162eaa99b56843c142cbcd5c2fbb0eeaf0e870a5bc094ef88f110e3"
 
-  url "https://package.mac.wpscdn.cn/mac_wps_pkg/#{version.csv.first}/WPS_Office_#{version.csv.first}(#{version.csv.second})_#{arch}.dmg",
+  url "https://package.mac.wpscdn.cn/mac_wps_pkg/#{version}/WPS_Office_#{version}(#{version.patch})_#{arch}.dmg",
       verified: "package.mac.wpscdn.cn/mac_wps_pkg/"
   name "WPS Office"
   desc "All-in-one office service platform in Chinese"
@@ -13,14 +13,10 @@ cask "wpsoffice-cn" do
 
   livecheck do
     url :homepage
-    regex(%r{>\s*v?(\d+(?:\.\d+)+)\s*[_\uff08(](\d+)[_\uff09)]\s*/\s*\d+(?:\.\d+)*\s*<}im)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| "#{match[0]},#{match[1]}" }
-    end
+    regex(%r{v?(\d+(?:\.\d+)+)/v?\d+(?:\.\d+)+}i)
   end
 
   conflicts_with cask: "wpsoffice"
-  depends_on macos: ">= :high_sierra"
 
   app "wpsoffice.app"
 

@@ -7,15 +7,7 @@ cask "deelay" do
   desc "Delay plugin"
   homepage "https://sixthsample.com/deelay/"
 
-  livecheck do
-    url :homepage
-    regex(%r{href=.*?/(\w+)/(\w+)/deelay[._-]v?(\d+(?:\.\d+)+)\.zip}i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| "#{match[2]},#{match[0]},#{match[1]}" }
-    end
-  end
-
-  depends_on macos: ">= :high_sierra"
+  disable! date: "2025-06-01", because: :no_longer_meets_criteria
 
   pkg "Deelay-#{version.csv.first}/Deelay-#{version.csv.first}-Installer-macOS.pkg"
 

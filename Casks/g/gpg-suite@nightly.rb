@@ -1,6 +1,6 @@
 cask "gpg-suite@nightly" do
-  version "3579n"
-  sha256 "59dfb8a97a41c985dc219dc9fcea1f45efd5a8cb420e6d3562e6167d661018b8"
+  version "3618n"
+  sha256 "6e1c9280cf825ea1a27498c539b8126be916327d797ea71066ca54638c1eddf5"
 
   url "https://releases.gpgtools.org/nightlies/GPG_Suite-#{version}.dmg"
   name "GPG Suite Nightly"
@@ -17,8 +17,7 @@ cask "gpg-suite@nightly" do
     "gpg-suite",
     "gpg-suite-no-mail",
     "gpg-suite-pinentry",
-  ], formula: "gnupg"
-  depends_on macos: ">= :mojave"
+  ]
 
   pkg "Install.pkg"
 

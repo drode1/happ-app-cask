@@ -1,6 +1,6 @@
 cask "vsee" do
-  version "4.24.0,51757"
-  sha256 "a788cee68d1810b67109313a256294284171324396bff48921845ef4440fce75"
+  version "4.28.1,52380"
+  sha256 "de51f1936d4fad21da71ab85c67ffcc3e339a0593f1a9527459b0cc6db1d9a40"
 
   url "https://d2q5hugz2rti4w.cloudfront.net/mac/#{version.csv.second}/vseemac.dmg",
       verified: "d2q5hugz2rti4w.cloudfront.net/mac/"
@@ -12,8 +12,6 @@ cask "vsee" do
     url "https://client.vsee.com/mac/appcast.xml"
     strategy :sparkle
   end
-
-  depends_on macos: ">= :catalina"
 
   app "VSee.app"
 

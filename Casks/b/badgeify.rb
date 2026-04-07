@@ -1,11 +1,8 @@
 cask "badgeify" do
-  arch arm: "aarch64", intel: "x86_64"
+  version "1.13.0"
+  sha256 "1a30ea101c06d8c15c848d6aaffdfd4bbbaf099e244f492599f60ea993f4ef95"
 
-  version "1.6.1"
-  sha256 arm:   "74d60c705a36825985f656542e486f73b2e29e7fb5b4e91c45b49a3a6ebf96e7",
-         intel: "d3f61293a5c9c2f6783a7ee66f7b7b4ac125604d7c594d801987deb17e3a5462"
-
-  url "https://api.badgeify.app/release/download/darwin/#{arch}/#{version}"
+  url "https://api.badgeify.app/release/download/darwin/universal/#{version}"
   name "Badgeify"
   desc "Add apps to the menu bar"
   homepage "https://badgeify.app/"
@@ -16,7 +13,7 @@ cask "badgeify" do
   end
 
   auto_updates true
-  depends_on macos: ">= :high_sierra"
+  depends_on macos: ">= :big_sur"
 
   app "Badgeify.app"
 

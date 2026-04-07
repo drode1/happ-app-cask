@@ -1,18 +1,19 @@
 cask "screaming-frog-seo-spider" do
   arch arm: "aarch64", intel: "x86_64"
 
-  version "21.4"
-  sha256 arm:   "35bf066bdce2b94b180b33ea84f1e7e7e024b66e43104edc4a2a46c0deca3e1c",
-         intel: "879560fcd858e1ccc2d687cccf6209a5536455c506b09c00c0b21d0a843f5bff"
+  version "23.3"
+  sha256 arm:   "d263873f08a4323104a259b776c1a3a12ccebdd1a19ae0f22312e188954a52b5",
+         intel: "6ba1205e7531ae7a31e822b796528299d60a55847ba57c34c81d52257b6e1495"
 
   url "https://download.screamingfrog.co.uk/products/seo-spider/ScreamingFrogSEOSpider-#{version}-#{arch}.dmg"
   name "Screaming Frog SEO Spider"
   desc "SEO site audit tool"
   homepage "https://www.screamingfrog.co.uk/seo-spider/"
 
+  # The homepage links to the latest dmg files but Cloudflare protections
+  # prevent us from fetching it, so it must be checked manually.
   livecheck do
-    url :homepage
-    regex(%r{href=.*?/ScreamingFrogSEOSpider[._-]v?(\d+(?:\.\d+)+)[._-]#{arch}\.dmg}i)
+    skip "Cannot be fetched due to Cloudflare protections"
   end
 
   depends_on macos: ">= :big_sur"

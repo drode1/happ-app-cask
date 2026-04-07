@@ -1,9 +1,9 @@
 cask "clion@eap" do
   arch arm: "-aarch64"
 
-  version "2025.1,251.23774.202"
-  sha256 arm:   "e1bac03e41fcd7e34854d7b0e1b308612d13a8e0dbaf3e31de0b67ec9c289eda",
-         intel: "13eec163f6a92cfc37bb2c336e20112e1082945a041be56750b14a2e8026db3c"
+  version "2026.1,261.22158.118"
+  sha256 arm:   "2b5323ce843fffbd7ea5f841652af16b3f230137431eff8b1cb4c145fa322d64",
+         intel: "49049e8196f1caea4a9cf2decad87f937f4cee4f94727f4804cc15dcb13ec7da"
 
   url "https://download.jetbrains.com/cpp/CLion-#{version.csv.second}#{arch}.dmg"
   name "CLion EAP"
@@ -11,7 +11,7 @@ cask "clion@eap" do
   homepage "https://www.jetbrains.com/clion/nextversion"
 
   livecheck do
-    url "https://data.services.jetbrains.com/products/releases?code=CL&latest=true&release.type=eap"
+    url "https://data.services.jetbrains.com/products/releases?code=CL&latest=true&type=eap"
     strategy :json do |json|
       json["CL"]&.map do |release|
         version = release["version"]
@@ -24,7 +24,7 @@ cask "clion@eap" do
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :monterey"
 
   app "CLion #{version.csv.first} EAP.app"
   binary "#{appdir}/CLion #{version.csv.first} EAP.app/Contents/MacOS/clion", target: "clion-eap"

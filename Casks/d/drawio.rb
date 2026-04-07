@@ -1,9 +1,9 @@
 cask "drawio" do
   arch arm: "arm64", intel: "x64"
 
-  version "26.2.15"
-  sha256 arm:   "2220ee15d8877b62a23c7016ab1af5c98c3c1a18f0ce648318268e99eff8666d",
-         intel: "1d956a9c9a7f999e9e34cc8ab9a47b095d886086994a59b0d70b5269b60b3c81"
+  version "29.6.6"
+  sha256 arm:   "d725b6333977adf73ecbfa3dcc60dd4f2d745706e6758526611b737561a5c61e",
+         intel: "7904e98252b8113d545a04058c492ee174e8fac00e9e609027e82c966ebf4d0d"
 
   url "https://github.com/jgraph/drawio-desktop/releases/download/v#{version}/draw.io-#{arch}-#{version}.dmg",
       verified: "github.com/jgraph/drawio-desktop/"
@@ -17,9 +17,19 @@ cask "drawio" do
   end
 
   auto_updates true
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :monterey"
 
   app "draw.io.app"
+  # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
+  shimscript = "#{staged_path}/drawio.wrapper.sh"
+  binary shimscript, target: "drawio"
+
+  preflight do
+    File.write shimscript, <<~EOS
+      #!/bin/bash
+      exec '#{appdir}/draw.io.app/Contents/MacOS/draw.io' "$@"
+    EOS
+  end
 
   zap trash: [
     "~/Library/Application Support/draw.io",

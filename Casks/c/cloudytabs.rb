@@ -8,8 +8,7 @@ cask "cloudytabs" do
   homepage "https://github.com/josh-/CloudyTabs/"
 
   deprecate! date: "2024-06-16", because: :discontinued
-
-  depends_on macos: ">= :high_sierra"
+  disable! date: "2025-06-16", because: :discontinued
 
   app "CloudyTabs.app"
 

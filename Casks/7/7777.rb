@@ -1,6 +1,6 @@
 cask "7777" do
-  version "1.1.18"
-  sha256 "276e3a0d340c7d8e32a811198b67bf5e85bba2a2ee61acd45bc8e0b1347283e8"
+  version "1.2.0"
+  sha256 "3a92a789cd231505e6c55e3041c2b1c61d8d0a3451ff78b182fb9fae9e0e365c"
 
   url "https://releases.port7777.com/#{version}/macos/7777"
   name "7777"
@@ -11,6 +11,8 @@ cask "7777" do
     url "https://releases.port7777.com/latest/version.txt"
     regex(/(\d+(?:\.\d+)+)/i)
   end
+
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   binary "7777"
 

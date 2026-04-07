@@ -1,14 +1,15 @@
 cask "vbrokers" do
-  version "2.5.934,600001,1745824139"
-  sha256 "24ba95b039de2914a1dc722968072a240c859ffdb5231c6b49609f8a32c55f8b"
+  version "2.8.209,1110127,1775121629"
+  sha256 "a19d9d49d12a3bae9f0a9c0c19f20071df1c642f1e2dbc4fd02fc7bde6b6a87c"
 
-  url "https://r.hstong.com/public/app/Mac/HSTONG_Mac_#{version.csv.second}_#{version.csv.first}_#{version.csv.third}.dmg"
+  url "https://r.hstong.com/public/app/Mac/HSTONG_Mac_#{version.csv.second}_#{version.csv.first}_#{version.csv.third}.dmg",
+      verified: "r.hstong.com/"
   name "VBrokers"
   desc "Trading platform"
-  homepage "https://www.hstong.com/"
+  homepage "https://www.vbkr.com/"
 
   livecheck do
-    url "https://www.hstong.com/download"
+    url "https://www.vbkr.com/download"
     regex(%r{href=['"].*?/HSTONG[-_]?Mac[-_]?(\d+)[-_]?(\d+(?:\.\d+)+)[-_]?(\d+)\.dmg}i)
     strategy :page_match do |page, regex|
       page.scan(regex)

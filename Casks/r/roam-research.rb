@@ -1,9 +1,9 @@
 cask "roam-research" do
   arch arm: "-arm64"
 
-  version "0.0.25"
-  sha256 arm:   "97a5802de1f6e534b48366f0bafad568b49a5966a84a9868e737469cd029ac76",
-         intel: "40a566727fecdd2519253104600bab9cb354a21bf534ae2012383216ed8879c6"
+  version "0.0.36"
+  sha256 arm:   "82bc99aefd51e626a78d8a4a22f7aeaadf89e5cc814415e7cfa693bd61b78907",
+         intel: "d8697fbd2afab43e7805391af9765c50aea85005a1a66e614629f62af6f6d9c2"
 
   url "https://roam-electron-deploy.s3.amazonaws.com/Roam+Research-#{version}#{arch}.dmg",
       verified: "roam-electron-deploy.s3.amazonaws.com/"
@@ -16,7 +16,7 @@ cask "roam-research" do
     strategy :electron_builder
   end
 
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :monterey"
 
   app "Roam Research.app"
 

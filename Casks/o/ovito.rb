@@ -2,8 +2,8 @@ cask "ovito" do
   arch arm: "arm64", intel: "intel"
 
   on_arm do
-    version "3.12.2"
-    sha256 "314e57b3bbe0e071b6737a73a3bfcec5245188ee80b6d3334880de7f1e2b75f0"
+    version "3.15.2"
+    sha256 "31e757530cf9f0a287657b19d5e8c76fcb03b6076e8aa1333f00a8602e3f8317"
   end
   on_intel do
     version "3.12.0"
@@ -22,7 +22,6 @@ cask "ovito" do
 
   auto_updates true
   conflicts_with cask: "ovito-pro"
-  depends_on macos: ">= :catalina"
 
   app "Ovito.app"
 

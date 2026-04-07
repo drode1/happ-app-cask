@@ -1,9 +1,9 @@
 cask "heynote" do
   arch arm: "arm64", intel: "x64"
 
-  version "2.2.1"
-  sha256 arm:   "6c2b8fc006165f714efe960c44cd1bff0031bd1cba00b2159ecbd50f236d8311",
-         intel: "3ecf4b174e7e4981b97cbaa79eb13c0771b08e01fd2e3b145c973a061a047838"
+  version "2.8.2"
+  sha256 arm:   "3e5718775802d8c27f55b5c46b147d8230c58432a7f635ea572d67bf20b54c6a",
+         intel: "b6d658d37be963702d0189e4d5e443f5dae2913d35494db4df5db23821270356"
 
   url "https://github.com/heyman/heynote/releases/download/v#{version}/Heynote_#{version}_#{arch}.dmg",
       verified: "github.com/heyman/heynote/"
@@ -17,7 +17,7 @@ cask "heynote" do
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :monterey"
 
   app "Heynote.app"
 

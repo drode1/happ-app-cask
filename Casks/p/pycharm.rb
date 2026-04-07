@@ -1,9 +1,9 @@
 cask "pycharm" do
   arch arm: "-aarch64"
 
-  version "2025.1,251.23774.444"
-  sha256 arm:   "8a0f796981c3df2cf19cdaa5aa75b2c3f45adf2e7b779c40d7043d6d8dbcebe3",
-         intel: "3ee1462eb7fa52593c67a50374a9af9d0ab4d081aa3c7ed72305bcbb1285a16e"
+  version "2026.1,261.22158.340"
+  sha256 arm:   "1ca4123f1b56cb6aecc0299f052ef49cb539d7b879e1b299d1ac87883bba48eb",
+         intel: "8f3c408f143d23bbf928690534b7231ba65b8602d376ad24b87db604b1fd5c9a"
 
   url "https://download.jetbrains.com/python/pycharm-professional-#{version.csv.first}#{arch}.dmg"
   name "PyCharm"
@@ -25,10 +25,18 @@ cask "pycharm" do
   end
 
   auto_updates true
-  depends_on macos: ">= :high_sierra"
 
   app "PyCharm.app"
-  binary "#{appdir}/PyCharm.app/Contents/MacOS/pycharm"
+  # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)
+  shimscript = "#{staged_path}/pycharm.wrapper.sh"
+  binary shimscript, target: "pycharm"
+
+  preflight do
+    File.write shimscript, <<~EOS
+      #!/bin/sh
+      exec '#{appdir}/PyCharm.app/Contents/MacOS/pycharm' "$@"
+    EOS
+  end
 
   zap trash: [
     "~/Library/Application Support/JetBrains/PyCharm#{version.major_minor}",
@@ -36,6 +44,8 @@ cask "pycharm" do
     "~/Library/Caches/JetBrains/PyCharm#{version.major_minor}",
     "~/Library/Logs/JetBrains/PyCharm#{version.major_minor}",
     "~/Library/Preferences/com.jetbrains.pycharm.plist",
+    "~/Library/Preferences/jetbrains.pc.*.plist",
+    "~/Library/Preferences/jetbrains.py.*.plist",
     "~/Library/Preferences/jetbrains.pycharm.*.plist",
     "~/Library/Preferences/PyCharm#{version.major_minor}",
     "~/Library/Saved Application State/com.jetbrains.pycharm.savedState",

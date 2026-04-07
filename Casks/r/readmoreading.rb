@@ -1,9 +1,9 @@
 cask "readmoreading" do
   arch arm: "arm64", intel: "x64"
 
-  version "1.1.47"
-  sha256 arm:   "0a51788baff71362b0b140aa228017bc0450fe536688d098fab088d48f80f7f4",
-         intel: "5090384e57fef41ed4eda911794e2f2dad48db57ec36cf5b64ecf9eb7322a522"
+  version "1.6.2"
+  sha256 arm:   "4d147b784e6c3342e78924a615b6f74cbd3e01359ba1f157c88e831a4e3f675a",
+         intel: "ab87924566fa9110a066b9c9be54e8389c91fa65f9ceaf29efd7ebe3d468ec63"
 
   url "https://github.com/eCrowdMedia/remake/releases/download/v#{version}/Readmoo.-#{version}-#{arch}.dmg",
       verified: "github.com/eCrowdMedia/remake/"
@@ -16,7 +16,7 @@ cask "readmoreading" do
     strategy :github_latest
   end
 
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :monterey"
 
   app "Readmoo看書.app"
 

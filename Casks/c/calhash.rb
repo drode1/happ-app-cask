@@ -1,61 +1,54 @@
 cask "calhash" do
   sha256 :no_check
 
-  on_catalina do
-    version "1.0.5"
+  # NOTE: We use separate `url` values in each of the macOS on_system blocks
+  # so that the API data correctly includes URL variants for each.
+  on_sequoia :or_older do
+    on_catalina :or_older do
+      version "1.0.5"
 
-    url "https://www.titanium-software.fr/download/1015/CalHash.dmg"
+      url "https://www.titanium-software.fr/download/1015/CalHash.dmg"
+    end
+    on_big_sur do
+      version "1.1.1"
+
+      url "https://www.titanium-software.fr/download/11/CalHash.dmg"
+    end
+    on_monterey do
+      version "1.1.9"
+
+      url "https://www.titanium-software.fr/download/12/CalHash.dmg"
+    end
+    on_ventura do
+      version "1.2.1"
+
+      url "https://www.titanium-software.fr/download/13/CalHash.dmg"
+    end
+    on_sonoma do
+      version "1.3.4"
+
+      url "https://www.titanium-software.fr/download/14/CalHash.dmg"
+    end
+    on_sequoia do
+      version "1.4.6"
+
+      url "https://www.titanium-software.fr/download/15/CalHash.dmg"
+    end
 
     livecheck do
       skip "Legacy version"
     end
   end
-  on_big_sur do
-    version "1.1.1"
+  on_tahoe :or_newer do
+    version "1.5.5"
 
-    url "https://www.titanium-software.fr/download/11/CalHash.dmg"
-
-    livecheck do
-      skip "Legacy version"
-    end
-  end
-  on_monterey do
-    version "1.1.9"
-
-    url "https://www.titanium-software.fr/download/12/CalHash.dmg"
-
-    livecheck do
-      skip "Legacy version"
-    end
-  end
-  on_ventura do
-    version "1.2.1"
-
-    url "https://www.titanium-software.fr/download/13/CalHash.dmg"
-
-    livecheck do
-      skip "Legacy version"
-    end
-  end
-  on_sonoma do
-    version "1.3.4"
-
-    url "https://www.titanium-software.fr/download/14/CalHash.dmg"
-
-    livecheck do
-      skip "Legacy version"
-    end
-  end
-  on_sequoia :or_newer do
-    version "1.4.4"
-
-    url "https://www.titanium-software.fr/download/15/CalHash.dmg"
+    url "https://www.titanium-software.fr/download/26/CalHash.dmg"
 
     # We check the version on the homepage, as the version in the related plist
     # file can be out of date.
     livecheck do
       url :homepage
-      regex(/>\s*CalHash\s+v?(\d+(?:\.\d+)+)\s+for\s+[\w\s]*15\s*</i)
+      regex(/>\s*CalHash\s+v?(\d+(?:\.\d+)+)\s+for\s+[\w\s]*26\s*</i)
     end
   end
 
@@ -70,6 +63,7 @@ cask "calhash" do
     :ventura,
     :sonoma,
     :sequoia,
+    :tahoe,
   ]
 
   app "CalHash.app"

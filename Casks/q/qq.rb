@@ -1,19 +1,18 @@
 cask "qq" do
-  version "6.9.70_250429_01"
-  sha256 "986170b7245f63d88dc2cac62ca1cac208ef17b60620a4bb3bf41603c3741a5e"
+  version "6.9.91_260319_01"
+  sha256 "a42e20f5528c306f52e88ec69508a7f122d64a78bd47689df7e83d35503bf8e0"
 
-  url "https://dldir1.qq.com/qqfile/qq/QQNT/Mac/QQ_#{version}.dmg"
+  url "https://dldir1v6.qq.com/qqfile/qq/QQNT/Mac/QQ_#{version}.dmg"
   name "QQ"
   desc "Instant messaging tool"
   homepage "https://im.qq.com/macqq/index.shtml"
 
   livecheck do
-    url "https://im.qq.com/rainbow/ntQQDownload/"
+    url "https://cdn-go.cn/qq-web/im.qq.com_new/latest/rainbow/macOSConfig.js"
     regex(/QQ[._-]v?(\d+(?:[._]\d+)+)\.dmg/i)
   end
 
   auto_updates true
-  depends_on macos: ">= :mojave"
 
   app "QQ.app"
 

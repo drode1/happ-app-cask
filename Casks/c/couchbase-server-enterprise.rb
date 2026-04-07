@@ -1,9 +1,9 @@
 cask "couchbase-server-enterprise" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "7.6.5"
-  sha256 arm:   "bd839693ca66a457c3613e1af129647ad4d189b6bf4ecdd76e106d9550213110",
-         intel: "0f7af6fcf7c350dc2afa5b57a28604e95dcd4b932f5fdf82108964f3ca18c97b"
+  version "8.0.0"
+  sha256 arm:   "a79613f10fc085899ff8ea31dccb85866098bd6ae812baca498582c641366ced",
+         intel: "2aee2d8d762331376022d0c50042c43847fed08dbc7bdcfac7f9dde8221ed70c"
 
   url "https://packages.couchbase.com/releases/#{version}/couchbase-server-enterprise_#{version}-macos_#{arch}.dmg"
   name "Couchbase Server"
@@ -11,12 +11,12 @@ cask "couchbase-server-enterprise" do
   homepage "https://www.couchbase.com/"
 
   livecheck do
-    url "https://www.couchbase.com/downloads/"
+    url "https://www.couchbase.com/downloads/",
+        user_agent: :browser
     regex(/couchbase[._-]server[._-]enterprise[._-]v?(\d+(:?\.\d+)+)[._-]macos[._-]#{arch}\.dmg/i)
   end
 
   conflicts_with cask: "couchbase-server-community"
-  depends_on macos: ">= :catalina"
 
   app "Couchbase Server.app"
 

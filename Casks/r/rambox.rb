@@ -1,6 +1,6 @@
 cask "rambox" do
-  version "2.4.1"
-  sha256 "b54c7a650e94eb80961bf1b1f476a12e0519f037a3181f73a6a7c4227751ff90"
+  version "2.6.2"
+  sha256 "b980ac0b2803f903e2b445a22a2e1e6c52ae8b2436a453dae941c8222d6c705c"
 
   url "https://github.com/ramboxapp/download/releases/download/v#{version}/Rambox-#{version}-mac.zip",
       verified: "github.com/ramboxapp/download/"
@@ -9,9 +9,9 @@ cask "rambox" do
   homepage "https://rambox.app/"
 
   auto_updates true
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :big_sur"
 
-  app "Rambox.app"
+  app "Rambox-darwin-universal/Rambox.app"
 
   zap trash: [
     "~/Library/Application Support/CrashReporter/Rambox Helper_*.plist",

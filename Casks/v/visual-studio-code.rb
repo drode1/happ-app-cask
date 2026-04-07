@@ -10,10 +10,19 @@ cask "visual-studio-code" do
       skip "Legacy version"
     end
   end
-  on_big_sur :or_newer do
-    version "1.99.3"
-    sha256 arm:   "caa36137ea1b46c594cea880d0836345d79e7de4f8b3826f184ed297fed78128",
-           intel: "86a71c5cddd50268a74d125dd7def2fd7b9e70ab3c588ec47ad05be0e29bcefb"
+  on_big_sur do
+    version "1.106.3"
+    sha256 arm:   "35dd438808dde1dd1f65490ffe7713ed64102324c0809efbec0b4eb2809b218b",
+           intel: "c41872149a205f3a3be3e5d3a8f04920407a0762531e607f78dc93f4d4813cda"
+
+    livecheck do
+      skip "Legacy version"
+    end
+  end
+  on_monterey :or_newer do
+    version "1.114.0"
+    sha256 arm:   "9d690da2bcafb03d923e4739bde435dbe0d63d78163c98df5b051c0bb3e36c2e",
+           intel: "76038a31844a7c6462a4b32c41c56694e1076c6f65e2bc8966fe49f339d2c700"
 
     livecheck do
       url "https://update.code.visualstudio.com/api/update/#{arch}/stable/latest"
@@ -30,11 +39,10 @@ cask "visual-studio-code" do
   homepage "https://code.visualstudio.com/"
 
   auto_updates true
-  conflicts_with formula: "code-cli"
-  depends_on macos: ">= :catalina"
 
   app "Visual Studio Code.app"
   binary "#{appdir}/Visual Studio Code.app/Contents/Resources/app/bin/code"
+  binary "#{appdir}/Visual Studio Code.app/Contents/Resources/app/bin/code-tunnel"
 
   uninstall launchctl: "com.microsoft.VSCode.ShipIt",
             quit:      "com.microsoft.VSCode"

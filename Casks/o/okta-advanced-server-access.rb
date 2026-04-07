@@ -1,6 +1,6 @@
 cask "okta-advanced-server-access" do
-  version "1.89.1"
-  sha256 "e63448b05c75e601e837a316e0ec3239c52a310b375cda6e564e2ff3362a2e6c"
+  version "1.102.0"
+  sha256 "15123b05665ba07f60ab6ff050c82924413a4abad4afe88fc405fefc41659925"
 
   url "https://dist.scaleft.com/repos/macos/stable/all/macos-client/v#{version}/ScaleFT-#{version}.pkg",
       verified: "dist.scaleft.com/repos/macos/stable/all/macos-client/"
@@ -15,7 +15,7 @@ cask "okta-advanced-server-access" do
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :big_sur"
 
   pkg "ScaleFT-#{version}.pkg"
 

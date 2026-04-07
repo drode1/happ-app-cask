@@ -2,12 +2,11 @@ cask "fathom" do
   arch arm: "arm64", intel: "x64"
   livecheck_arch = on_arch_conditional arm: "_arm64"
 
-  version "1.39.0"
-  sha256 arm:   "2f6eb696c5c978417905c6aadac4a34aa84e3d388e41de576c280f9622508337",
-         intel: "5fbeff2cc17b33dc10dc68e597416f7fd9d7d270bfd97d9f4c248a4861e31477"
+  version "1.42.6"
+  sha256 arm:   "8135f3701b9cc132bcb99fa74a754ccdf5681ccbcc49ae6bc91c6a71a4ee6c16",
+         intel: "94c16a761e955b128ef37a4b67aa82f665522db0a6676bfc0e053d94cef42efd"
 
-  url "https://storage.googleapis.com/electron_releases/v#{version}/Fathom-darwin-#{arch}-#{version}.dmg",
-      verified: "storage.googleapis.com/electron_releases/"
+  url "https://electron-update.fathom.video/download/file/Fathom-darwin-#{arch}-#{version}.dmg"
   name "Fathom"
   desc "Record and transcribe video conferences"
   homepage "https://fathom.video/"
@@ -18,8 +17,6 @@ cask "fathom" do
       json["name"]&.tr("v", "")
     end
   end
-
-  depends_on macos: ">= :catalina"
 
   app "Fathom.app"
 

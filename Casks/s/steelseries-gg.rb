@@ -1,6 +1,6 @@
 cask "steelseries-gg" do
-  version "85.0.0"
-  sha256 "24f16f1ab7513dd67574ad6934ef5fc39fa574ca31d7c3d56c260e09908650b3"
+  version "107.0.0"
+  sha256 "caafd485a924320366183449586cb5939fa64556aace8811f8dbb92912e80c86"
 
   url "https://engine.steelseriescdn.com/SteelSeriesGG#{version}.pkg",
       verified: "engine.steelseriescdn.com/"
@@ -14,8 +14,6 @@ cask "steelseries-gg" do
   end
 
   auto_updates true
-  conflicts_with cask: "steelseries-engine"
-  depends_on macos: ">= :sierra"
 
   pkg "SteelSeriesGG#{version}.pkg"
 
@@ -44,8 +42,4 @@ cask "steelseries-gg" do
     "~/Library/Saved Application State/com.steelseries.gg.client.savedState",
     "~/Library/Saved Application State/com.steelseries.gg.uninstaller.savedState",
   ]
-
-  caveats do
-    requires_rosetta
-  end
 end

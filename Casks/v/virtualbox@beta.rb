@@ -1,13 +1,14 @@
 cask "virtualbox@beta" do
   arch arm: "macOSArm64", intel: "OSX"
+  desc_arch = on_arch_conditional arm: "arm64", intel: "x86"
 
-  version "7.1.9-168614"
-  sha256 arm:   "e41cf8bd1ddd25d97fe119f405690cf520a61febb51a067fb926efb74302009d",
-         intel: "79e456ecaf378184a82dd12c0f782d68de4a591f4db6205260c4a99aa210a49c"
+  version "7.2.7-173452"
+  sha256 arm:   "9329a64ed79a94fa61262314af84b7807c141250925eb127eba1c67bc6163198",
+         intel: "0a898fb130c92aabb36c766397f2318f97bcd74a0ebf364efaef1c0d60a5e8d8"
 
   url "https://www.virtualbox.org/download/testcase/VirtualBox-#{version}-#{arch}.dmg"
   name "Oracle VirtualBox"
-  desc "Virtualizer for x86 and arm64 hardware"
+  desc "Virtualiser for #{desc_arch} hardware"
   homepage "https://www.virtualbox.org/wiki/Testbuilds"
 
   livecheck do
@@ -19,15 +20,9 @@ cask "virtualbox@beta" do
     "virtualbox",
     "virtualbox@6",
   ]
-  depends_on macos: ">= :catalina"
 
   pkg "VirtualBox.pkg",
       choices: [
-        {
-          "choiceIdentifier" => "choiceVBoxKEXTs",
-          "choiceAttribute"  => "selected",
-          "attributeSetting" => 1,
-        },
         {
           "choiceIdentifier" => "choiceVBox",
           "choiceAttribute"  => "selected",
@@ -37,11 +32,6 @@ cask "virtualbox@beta" do
           "choiceIdentifier" => "choiceVBoxCLI",
           "choiceAttribute"  => "selected",
           "attributeSetting" => 1,
-        },
-        {
-          "choiceIdentifier" => "choiceOSXFuseCore",
-          "choiceAttribute"  => "selected",
-          "attributeSetting" => 0,
         },
       ]
 
@@ -62,17 +52,10 @@ cask "virtualbox@beta" do
 
   zap trash: [
         "/Library/Application Support/VirtualBox",
-        "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.virtualbox.app.virtualbox.sfl*",
-        "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.virtualbox.app.virtualboxvm.sfl*",
-        "~/Library/Preferences/org.virtualbox.app.VirtualBox.plist",
-        "~/Library/Preferences/org.virtualbox.app.VirtualBoxVM.plist",
-        "~/Library/Saved Application State/org.virtualbox.app.VirtualBox.savedState",
-        "~/Library/Saved Application State/org.virtualbox.app.VirtualBoxVM.savedState",
+        "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.virtualbox.app.virtualbox*",
+        "~/Library/Preferences/org.virtualbox.app.VirtualBox*",
+        "~/Library/Saved Application State/org.virtualbox.app.VirtualBox*",
         "~/Library/VirtualBox",
       ],
       rmdir: "~/VirtualBox VMs"
-
-  caveats do
-    kext
-  end
 end

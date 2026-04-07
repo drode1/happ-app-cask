@@ -1,6 +1,6 @@
 cask "mitti" do
-  version "2.8.10,1343"
-  sha256 "e5b460601cc4e7473a077804be79e0c536c4c9e7e8e47085785d70d2cfe98f3d"
+  version "2.8.17,1433"
+  sha256 "f65b7ef86baf22c53f552db0766a6d8cd8bce2d7f3b73c619201d7c7f72a387b"
 
   url "https://dl.imimot.com/Mitti#{version.csv.first}_#{version.csv.second}.dmg"
   name "Mitti"
@@ -13,7 +13,6 @@ cask "mitti" do
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
 
   app "Mitti.app"
 

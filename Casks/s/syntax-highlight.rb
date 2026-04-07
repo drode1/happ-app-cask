@@ -1,6 +1,6 @@
 cask "syntax-highlight" do
-  version "2.1.25"
-  sha256 "bcb782afc31b7df1859c3414b52253baf50c07a26210b2c55d785a52914bacdd"
+  version "2.1.28"
+  sha256 "a63bf284e53c98b0cd2f906d6feb64ad2978e0e53b9c6d79e744d7a722249aae"
 
   url "https://github.com/sbarex/SourceCodeSyntaxHighlight/releases/download/#{version}/Syntax.Highlight.zip"
   name "Syntax Highlight"
@@ -17,6 +17,8 @@ cask "syntax-highlight" do
       items.map(&:short_version)
     end
   end
+
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   auto_updates true
   depends_on macos: ">= :big_sur"

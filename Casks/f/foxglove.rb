@@ -1,8 +1,11 @@
 cask "foxglove" do
-  version "2.26.0"
-  sha256 "e366f5fa350b8542973ff7ca6236e524a4a413dab3d552a51abc369fdac205c1"
+  arch arm: "arm64", intel: "x64"
 
-  url "https://get.foxglove.dev/desktop/latest/foxglove-#{version}-mac-universal.dmg"
+  version "2.49.0"
+  sha256 arm:   "e20dac575d78de82b48ffc29da63b2b876472526c6bfc497708fc31d61e4a3e1",
+         intel: "0d7e96d947226fd971005d1ab98f97c72391505a781343abe75bbf63328f9233"
+
+  url "https://get.foxglove.dev/desktop/latest/foxglove-#{version}-mac-#{arch}.dmg"
   name "Foxglove"
   desc "Visualisation and debugging tool for robotics"
   homepage "https://foxglove.dev/"
@@ -13,7 +16,7 @@ cask "foxglove" do
   end
 
   auto_updates true
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :monterey"
 
   app "Foxglove.app"
 

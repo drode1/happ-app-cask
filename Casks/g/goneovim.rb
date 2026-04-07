@@ -1,9 +1,9 @@
 cask "goneovim" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "0.6.13"
-  sha256 arm:   "cf28520f9676d94fb0372bc472566fe9068b1f24e3272dcb6bae2fa442558a1c",
-         intel: "0ef42ea82512b15b0b08b7af1cc6a640ea66b5ae79abc8d3cd46c962dba16506"
+  version "0.6.17"
+  sha256 arm:   "baba9f98917a474d308127ba615b896700732a644bf880f0b8290a5cf2947425",
+         intel: "0835f2726dbb75bbe4d2a7278acba9865c006f5489fa112521aba61dddadd0f8"
 
   url "https://github.com/akiyosi/goneovim/releases/download/v#{version}/Goneovim-v#{version}-macos-#{arch}.tar.bz2"
   name "Goneovim"
@@ -15,7 +15,10 @@ cask "goneovim" do
     strategy :github_latest
   end
 
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
   depends_on formula: "neovim"
+  depends_on macos: ">= :big_sur"
 
   app "goneovim-v#{version}-macos-#{arch}/goneovim.app"
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)

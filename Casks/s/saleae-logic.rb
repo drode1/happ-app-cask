@@ -1,9 +1,9 @@
 cask "saleae-logic" do
   arch arm: "arm64", intel: "x64"
 
-  version "2.4.29"
-  sha256 arm:   "17e601e84b3cb810c80f4e8d9cc22afad9e3637acddafaded813fbae7f427f70",
-         intel: "9d91ae632d55bc72d385db6002cf1602fb61f2361202a49affd7ea169f6395ac"
+  version "2.4.44"
+  sha256 arm:   "c21c91749f6b9e04da35b8f6c55a44a3e496d9a250a1e3742cff2c1f62b66886",
+         intel: "2c4317d58cf193078ee011dfda5fa74509d0d76bc8f45b8184096cbe7707d30c"
 
   url "https://downloads#{version.major}.saleae.com/logic#{version.major}/Logic-#{version}-macos-#{arch}.zip"
   name "Saleae Logic2"
@@ -16,9 +16,7 @@ cask "saleae-logic" do
     strategy :header_match
   end
 
-  depends_on macos: ">= :catalina"
-
-  app "Logic#{version.major}.app"
+  app "Saleae Logic.app"
 
   zap trash: [
     "~/Library/Application Support/Logic",

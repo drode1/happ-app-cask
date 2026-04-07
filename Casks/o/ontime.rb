@@ -1,9 +1,9 @@
 cask "ontime" do
   arch arm: "arm64", intel: "x64"
 
-  version "3.15.1"
-  sha256 arm:   "7b2995f6703f59381f203cba7aa11345b179991d9ec02e6e634c7faa4bfdb57e",
-         intel: "b6b75b4bc77094ffe4fb965797f1db5f7c8380b5eb5e7c8276214f3b7cf9d8e5"
+  version "4.7.0"
+  sha256 arm:   "39d0e0b44a706b94a569d6af56facd888f7bcf63ab6ff3b072a38424d156f4f5",
+         intel: "150954849d1985a6e45d33d8b8b48a9fc9137ff6bfb2260c0a23b164304169c5"
 
   url "https://github.com/cpvalente/ontime/releases/download/v#{version}/ontime-macOS-#{arch}.dmg",
       verified: "github.com/cpvalente/ontime/"
@@ -17,7 +17,7 @@ cask "ontime" do
   end
 
   auto_updates true
-  depends_on macos: ">= :catalina"
+  depends_on macos: ">= :monterey"
 
   app "ontime.app"
 

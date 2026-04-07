@@ -1,6 +1,6 @@
 cask "loupedeck" do
-  version "6.1.1.22238"
-  sha256 "f8e90d7196061b547fc0aadc728672db4f9ed357574c4abfb448210370c6d59b"
+  version "6.2.4.228"
+  sha256 "c1e38c6b304cea19b19a4a4c825787fa9483b836916a3b84f6a69b719b38ecec"
 
   url "https://support.loupedeck.com/hubfs/Knowledge%20Base/LD%20Software%20Downloads/#{version.major_minor_patch.chomp(".0")}/LoupedeckInstaller_#{version}.dmg"
   name "Loupdeck"
@@ -11,8 +11,6 @@ cask "loupedeck" do
     url "https://loupedeck.com/downloads/"
     regex(/href=.*?LoupedeckInstaller(?:[._\s-]|%20)+v?(\d+(?:\.\d+)+)\.dmg/i)
   end
-
-  depends_on macos: ">= :sierra"
 
   # pkg cannot be installed automatically
   installer manual: "LoupedeckInstaller.pkg"

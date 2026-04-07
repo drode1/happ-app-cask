@@ -1,9 +1,9 @@
 cask "vieb" do
   arch arm: "arm64-"
 
-  version "12.2.0"
-  sha256 arm:   "123bc82e19ff7f17684b197611d33937694f3f382ea1d31673fb327642ab2b6b",
-         intel: "bd6198b6b26095115cff93a429184208ea0ef1da1d1e9a8fb7b6a9d2482a7c35"
+  version "12.7.0"
+  sha256 arm:   "382fccf7cdc4c19ebafce502e6435b9fe2e66e3de2a890182d33c1a19132aa77",
+         intel: "5238a426647cb97f307bfff93b71f4a0495af8041e2304c54775636bcaef52f0"
 
   url "https://github.com/Jelmerro/Vieb/releases/download/#{version}/Vieb-#{version}-#{arch}mac.zip",
       verified: "github.com/Jelmerro/Vieb/"
@@ -11,7 +11,9 @@ cask "vieb" do
   desc "Vim Inspired Electron Browser"
   homepage "https://vieb.dev/"
 
-  depends_on macos: ">= :big_sur"
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
+  depends_on macos: ">= :monterey"
 
   app "Vieb.app"
   # shim script (https://github.com/Homebrew/homebrew-cask/issues/18809)

@@ -1,6 +1,6 @@
 cask "surfshark" do
-  version "4.19.0,2891"
-  sha256 "9f7a077a08a36ac74c89c24d67daa1990413a214ddff65f315c1bdb98359c38f"
+  version "4.26.2,4284"
+  sha256 "eefc220835eb594090b4fb7b41911158277a42680bbec4595c2e3d4f53cf75db"
 
   url "https://downloads.surfshark.com/macOS/stable/#{version.csv.first}/#{version.csv.second}/Surfshark.dmg"
   name "Surfshark"
@@ -13,7 +13,7 @@ cask "surfshark" do
   end
 
   auto_updates true
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :monterey"
 
   app "Surfshark.app"
 

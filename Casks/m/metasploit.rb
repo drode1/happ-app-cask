@@ -1,6 +1,6 @@
 cask "metasploit" do
-  version "6.4.54,20250315103004"
-  sha256 "1906b8595306a9035b07279647f11b33c63a3232196901040aedac372255d054"
+  version "6.4.126,20260406055619.git.2.96f5f93"
+  sha256 "3b6d82d3a98247e45e336a22f88c0350276fda40a12a5b80894eed4e442191b4"
 
   url "https://osx.metasploit.com/metasploit-framework-#{version.csv.first}-#{version.csv.second}-1rapid7-1.x86_64.pkg"
   name "Metasploit Framework"
@@ -17,6 +17,8 @@ cask "metasploit" do
       "#{match[1]},#{match[2]}"
     end
   end
+
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   depends_on formula: "nmap"
 

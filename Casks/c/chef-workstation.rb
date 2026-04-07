@@ -1,9 +1,18 @@
 cask "chef-workstation" do
   arch arm: "arm64", intel: "x86_64"
 
-  version "25.2.1075,12"
-  sha256 arm:   "9b6312d5efa3d35f4472efd7687ae1d4954971c4450c2f5e911752fa540d439d",
-         intel: "e578d0a08c7e2bf40847091e8e4328c6657ad3cd2a517051cb82d3ef7c8d25d3"
+  on_arm do
+    version "25.13.7,14"
+    sha256 "13f6d27250cd5104253454cf06f00032e7a78efb8198f126d7dea009e6b64cac"
+
+    depends_on macos: ">= :ventura"
+  end
+  on_intel do
+    version "25.9.1094,12"
+    sha256 "d0f537cb4a1e5ae1b6752576427f8bfbf9ce7ac4de4dd3cbbeb603c8f9892347"
+
+    depends_on macos: ">= :monterey"
+  end
 
   url "https://packages.chef.io/files/stable/chef-workstation/#{version.csv.first}/mac_os_x/#{version.csv.second}/chef-workstation-#{version.csv.first}-1.#{arch}.dmg"
   name "Chef Workstation"
@@ -17,8 +26,6 @@ cask "chef-workstation" do
       page.scan(regex).map { |match| "#{match[0]},#{match[1]}" }
     end
   end
-
-  depends_on macos: ">= :big_sur"
 
   pkg "chef-workstation-#{version.csv.first}-1.#{arch}.pkg"
 

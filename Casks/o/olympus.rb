@@ -1,6 +1,6 @@
 cask "olympus" do
-  version "4744"
-  sha256 "c678aa5f349e55660f85f11e96b53b162a79d30a98c7eabd9c129ebca338f9f8"
+  version "5524"
+  sha256 "379ab65ecb594863e8be44845524baf52cee08113308cecd1f0b4a2ff5379c6f"
 
   url "https://dev.azure.com/EverestAPI/Olympus/_apis/build/builds/#{version}/artifacts?artifactName=macos.main&$format=zip",
       verified: "dev.azure.com/EverestAPI/Olympus/_apis/build/builds/"
@@ -16,6 +16,8 @@ cask "olympus" do
       end
     end
   end
+
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
 
   container nested: "macos.main/dist.zip"
 

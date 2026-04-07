@@ -1,18 +1,45 @@
 cask "minecraft-server" do
-  version "1.21.5,e6ec2f64e6080b9b5d9b471b291c33cc7f509733"
-  sha256 "ae7681dadce21b6b4017d28e7eb567d86b6c100a6969994f540b9e54f812dc29"
+  version "26.1.1,49c8195703ad0ba4f0a4efbccfd85a4a8ca57431"
+  sha256 "d792784979722dc35144acffb953554e707445c62450550044c4281e632cbbcc"
 
-  url "https://launcher.mojang.com/v#{version.major}/objects/#{version.csv.second}/server.jar",
-      verified: "launcher.mojang.com/"
+  url "https://piston-data.mojang.com/v1/objects/#{version.csv.second}/server.jar",
+      verified: "piston-data.mojang.com/"
   name "Minecraft Server"
   desc "Run a Minecraft multiplayer server"
   homepage "https://www.minecraft.net/en-us/"
 
+  # The server download page (https://www.minecraft.net/en-us/download/server)
+  # HTML does not contain version information or a download link, as they are
+  # fetched using separate JavaScript requests.
   livecheck do
-    url "https://www.minecraft.net/en-us/download/server"
-    regex(%r{href=.*?/objects/(\h+)/server\.jar[^>]*>minecraft[_-]server[._-]v?(\d+(?:\.\d+)*)\.jar}i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| "#{match[1]},#{match[0]}" }
+    url "https://net-secondary.web.minecraft-services.net/api/v1.0/download/latest"
+    regex(%r{/objects/(\h+)/server\.jar}i)
+    strategy :json do |json, regex|
+      latest_version = json["result"]
+      next unless latest_version
+
+      # Only fetch the download links JSON if the upstream version is newer than
+      # the current cask version
+      next version if latest_version == version.csv.first
+
+      links_content = Homebrew::Livecheck::Strategy.page_content(
+        "https://net-secondary.web.minecraft-services.net/api/v1.0/download/links",
+      )[:content]
+      next latest_version if links_content.blank?
+
+      links_json = Homebrew::Livecheck::Strategy::Json.parse_json(links_content)
+      link_hash = nil
+      links_json.dig("result", "links")&.each do |link|
+        next if link["downloadType"] != "serverJar"
+
+        match = link["downloadUrl"]&.match(regex)
+        next if match.blank?
+
+        link_hash = match[1]
+        break
+      end
+
+      link_hash ? "#{latest_version},#{link_hash}" : latest_version
     end
   end
 

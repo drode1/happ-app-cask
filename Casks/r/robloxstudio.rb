@@ -1,9 +1,9 @@
 cask "robloxstudio" do
   arch arm: "arm64/"
 
-  version "0.671.0.6710819,9a1c8d7fb5ac446b"
-  sha256 arm:   "9ce725b50c5f342a71d8bfa05b2fee94487f834bb83104671292e29bc9b1944a",
-         intel: "de2a3bc70a9d784a28a2246b12e0be5337baf33271a666241e6ced553c3715bd"
+  version "0.715.1.7151119,20084c8229e44fcb"
+  sha256 arm:   "5ae6831ef14e8006d61eda7f7bc771c555e413dc97616782d31b340ce7ac9dda",
+         intel: "a99495c532e00f730de770f69d45c0a99a49a846aa71c222b044c19f06d068b5"
 
   url "https://setup.rbxcdn.com/mac/#{arch}version-#{version.csv.second}-RobloxStudioApp.zip",
       verified: "setup.rbxcdn.com/"
@@ -23,12 +23,10 @@ cask "robloxstudio" do
   end
 
   auto_updates true
-  depends_on macos: ">= :high_sierra"
 
   app "RobloxStudio.app"
 
-  uninstall quit:   "com.roblox.RobloxStudio",
-            delete: "/Applications/RobloxStudio.app"
+  uninstall quit: "com.roblox.RobloxStudio"
 
   zap trash: [
     "~/Library/Preferences/com.roblox.RobloxStudio.plist",

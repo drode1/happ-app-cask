@@ -18,7 +18,8 @@ cask "noxappplayer" do
     end
   end
 
-  depends_on macos: ">= :sierra"
+  disable! date: "2026-09-01", because: :fails_gatekeeper_check
+
   container nested: "NoxAppPlayerInstaller.app/Contents/MacOS/NoxAppPlayer.zip"
 
   app "NoxAppPlayer.app"

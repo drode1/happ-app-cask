@@ -1,9 +1,9 @@
 cask "mockoon" do
   arch arm: "arm64", intel: "x64"
 
-  version "9.2.0"
-  sha256 arm:   "39d66cb88bc9f697b9bfd7127a1593e90b727f5b48c45386bcd56d4dc94f42d1",
-         intel: "4709e80c61ff566bb71ac3c69a6619434731350dfe77065f8699d85a73328cd2"
+  version "9.6.1"
+  sha256 arm:   "f27fa1aec0b3e84533e1ff9079184873007e67d30fc957f7021d406c34557235",
+         intel: "a0e1971120e722f6f4687c4cf1a041bf0a7200c18d8bae3fd7b26b72daf40640"
 
   url "https://github.com/mockoon/mockoon/releases/download/v#{version}/mockoon.setup.#{version}.#{arch}.dmg",
       verified: "github.com/mockoon/mockoon/"
@@ -19,7 +19,7 @@ cask "mockoon" do
   end
 
   auto_updates true
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :monterey"
 
   app "Mockoon.app"
 

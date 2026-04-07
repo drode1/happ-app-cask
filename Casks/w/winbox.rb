@@ -1,6 +1,6 @@
 cask "winbox" do
-  version "4.0beta20"
-  sha256 "b4bb2b78ae98b2ab1b31a638762977e1e887c401bb1ab658ca597a057f5db31f"
+  version "4.0.1"
+  sha256 "343ff590eb1a0674c6f32c7e607e3c4f78f0d0a0a482db1ffccbac78056bc346"
 
   url "https://download.mikrotik.com/routeros/winbox/#{version}/WinBox.dmg"
   name "WinBox"
@@ -9,10 +9,10 @@ cask "winbox" do
 
   livecheck do
     url "https://upgrade.mikrotik.com/routeros/winbox/LATEST.#{version.major}"
-    regex(/v?(\d+(?:\.\d+)+(?:beta\d+)?)/i)
+    regex(/v?(\d+(?:\.\d+)+((?:beta|rc)\d+)?)/i)
   end
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :monterey"
 
   app "WinBox.app"
 

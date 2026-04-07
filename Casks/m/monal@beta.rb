@@ -1,10 +1,10 @@
 cask "monal@beta" do
-  version "1038"
-  sha256 "7767d246613a90cc6c2615698300468f6741a43fe95b4e7e96079a8a41634fc6"
+  version "1084"
+  sha256 "0b7e22d322e5ca110bcab7f1480dd2dcd4f1efbb53548ba4925ed7072acaa14e"
 
   url "https://downloads.monal-im.org/monal-im/beta/macOS/Monal-#{version}.zip"
   name "Monal"
-  desc "Tool to securely connect to chat servers"
+  desc "XMPP chat client"
   homepage "https://monal-im.org/"
 
   livecheck do
